@@ -82,7 +82,7 @@ class User_entry_medication(db.Model):
     medication_id = db.Column(db.Integer, db.ForeignKey('medications.medication_id'), nullable=False)
     
     def __repr__(self):
-        return f'<User_entry_mood user_entry_mood_id={self.user_entry_medication_id} medication_id={self.medication_id}>'
+        return f'<User_entry_medication user_entry_medication_id={self.user_entry_medication_id} medication_id={self.medication_id}>'
 
 
 class Symptom(db.Model):
