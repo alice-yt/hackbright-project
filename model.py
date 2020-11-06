@@ -35,6 +35,8 @@ class User_entry(db.Model):
     exercise_level = db.Column(db.Integer)
     alcoholic_units = db.Column(db.Integer)
 
+    user = db.relationship('User')
+
     def __repr__(self):
         return f'<User_entry user_entry_id={self.user_entry_id} datetime_of_entry={self.datetime_of_entry} sleep_quality={self.sleep_quality}>'
     
@@ -58,6 +60,9 @@ class User_entry_mood(db.Model):
     user_entry_id = db.Column(db.Integer, db.ForeignKey('user_entries.user_entry_id'), nullable=False)
     mood_id = db.Column(db.Integer, db.ForeignKey('moods.mood_id'), nullable=False)
     
+    user_entry = db.relationship('User_entry')
+    mood = db.relationship('Mood')
+
     def __repr__(self):
         return f'<User_entry_mood user_entry_mood_id={self.user_entry_mood_id} mood_id={self.mood_id}>'
 
@@ -81,6 +86,9 @@ class User_entry_medication(db.Model):
     user_entry_id = db.Column(db.Integer, db.ForeignKey('user_entries.user_entry_id'), nullable=False)
     medication_id = db.Column(db.Integer, db.ForeignKey('medications.medication_id'), nullable=False)
     
+    user_entry = db.relationship('User_entry')
+    medication = db.relationship('Medication')
+
     def __repr__(self):
         return f'<User_entry_medication user_entry_medication_id={self.user_entry_medication_id} medication_id={self.medication_id}>'
 
@@ -104,6 +112,9 @@ class User_entry_symptom(db.Model):
     user_entry_id = db.Column(db.Integer, db.ForeignKey('user_entries.user_entry_id'), nullable=False)
     symptom_id = db.Column(db.Integer, db.ForeignKey('symptoms.symptom_id'), nullable=False)
     
+    user_entry = db.relationship('User_entry')
+    symptom = db.relationship('Symptom')
+
     def __repr__(self):
         return f'<User_entry_symptom user_entry_symptom_id={self.user_entry_symptom_id} symptom_id={self.symptom_id}>'
 
