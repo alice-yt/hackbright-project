@@ -3,7 +3,7 @@ from model import db, User, User_entry, Mood, User_entry_mood, Medication, User_
 
 from datetime import datetime
 
-def create_user(email, password):
+def create_user(full_name, email, password):
     """Create and return a new user."""
 
     user = User(full_name=full_name,email=email, password=password)
@@ -13,18 +13,26 @@ def create_user(email, password):
 
     return user
 
-# def create_movie(title, overview, release_date, poster_path):
-#     """Create and return a new movie."""
+def create_user_entry(datetime_of_input, datetime_of_entry, sleeptime, waketime, sleep_quality, stress_level, energy_level, productivity_level, exercise_level, alcoholic_units):
+    """Create and return a new user entry."""
 
-#     movie = Movie(title=title, 
-#                   overview=overview, 
-#                   release_date=release_date, 
-#                   poster_path=poster_path)
+    user_entry = User_entry(datetime_of_input=datetime_of_input, 
+                            datetime_of_entry=datetime_of_entry, 
+                            sleeptime=sleeptime, 
+                            waketime=waketime, 
+                            sleep_quality=sleep_quality, 
+                            stress_level=stress_level, 
+                            energy_level=energy_level, 
+                            productivity_level=productivity_level, 
+                            exercise_level=exercise_level, 
+                            alcoholic_units=alcoholic_units)
 
-#     db.session.add(movie)
-#     db.session.commit()
+    db.session.add(user_entry)
+    db.session.commit()
 
-#     return movie
+    return user_entry
+
+    
 
 # def get_movies():
 #     """Create and return all movies."""
