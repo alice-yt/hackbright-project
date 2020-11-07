@@ -32,7 +32,38 @@ def create_user_entry(datetime_of_input, datetime_of_entry, sleeptime, waketime,
 
     return user_entry
 
+def create_mood(mood_id, mood):
+    """Create and return a new mood."""
     
+    mood = Mood(mood_id=mood_id,
+                mood=mood)
+    
+    db.session.add(mood)
+    db.session.commit()
+
+    return mood
+
+def create_medication(medication_id, medication):
+    """Create and return a new medication."""
+    
+    medication = Medication(medication_id=medication_id,
+                            medication=medication)
+    
+    db.session.add(medication)
+    db.session.commit()
+
+    return medication
+
+def create_symptom(symptom_id, symptom):
+    """Create and return a new symptom."""
+    
+    symptom = Symptom(symptom_id=symptom_id,
+                      symptom=symptom)
+    
+    db.session.add(symptom)
+    db.session.commit()
+
+    return symptom
 
 # def get_movies():
 #     """Create and return all movies."""
@@ -53,18 +84,6 @@ def create_user_entry(datetime_of_input, datetime_of_entry, sleeptime, waketime,
 #     """ gets movie by id """
 
 #     return Movie.query.get(movie_id)
-
-# def create_rating(user, movie, score):
-#     """Create and return a new rating."""
-    
-#     rating = Rating(user=user, 
-#                     movie=movie, 
-#                     score=score)
-    
-#     db.session.add(rating)
-#     db.session.commit()
-
-#     return rating
 
 # def get_user_by_email(email):
 
