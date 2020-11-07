@@ -1,17 +1,17 @@
 """ CRUD operations """
-from model import db, connect_to_db
+from model import db, User, User_entry, Mood, User_entry_mood, Medication, User_entry_medication, Symptom, User_entry_symptom, connect_to_db
 
 from datetime import datetime
 
-# def create_user(email, password):
-#     """Create and return a new user."""
+def create_user(email, password):
+    """Create and return a new user."""
 
-#     user = User(email=email, password=password)
+    user = User(full_name=full_name,email=email, password=password)
 
-#     db.session.add(user)
-#     db.session.commit()
+    db.session.add(user)
+    db.session.commit()
 
-#     return user
+    return user
 
 # def create_movie(title, overview, release_date, poster_path):
 #     """Create and return a new movie."""
