@@ -32,6 +32,16 @@ def create_user_entry(datetime_of_input, datetime_of_entry, sleeptime, waketime,
 
     return user_entry
 
+def get_user_entries():
+    """Return all user entries"""
+
+    return User_entry.query.all()
+
+def get_user_entry_by_id(user_entry_id):
+    """Gets user entry by id"""
+
+    return User_entry.query.get(user_entry_id)
+
 def create_mood(mood):
     """Create and return a new mood."""
     

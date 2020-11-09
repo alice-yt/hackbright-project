@@ -14,24 +14,24 @@ app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
 
 
-# @app.route('/')
-# def homepage():
-#     return render_template('homepage.html')
+@app.route('/')
+def homepage():
+    return render_template('homepage.html')
 
-# @app.route('/movies')
-# def all_movies():
-#     """View all movies."""
+@app.route('/user_entries')
+def all_movies():
+    """View all user entries."""
 
-#     movies = crud.get_movies()
+    user_entries = crud.get_user_entries()
 
-#     return render_template('all_movies.html', movies=movies)
+    return render_template('all_user_entries.html', user_entries=user_entries)
 
-# @app.route('/movies/<movie_id>')
-# def show_movie(movie_id):
-#     """Show movie details"""
-#     movie = crud.get_movie_by_id(movie_id)
+@app.route('/user_entries/<user_entry_id>')
+def show_user_entry(user_entry_id):
+    """Show user entry details"""
+    user_entry = crud.get_user_entry_by_id(user_entry_id)
 
-#     return render_template('movie_details.html', movie=movie)
+    return render_template('user_entry_details.html', user_entry=user_entry)
 
 # @app.route('/users/<user_id>')
 # def show_user(user_id):

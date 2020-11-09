@@ -47,3 +47,6 @@ for user_entry in sleep_data:
                                            alcoholic_units)
 
     sleepdata_in_db.append(db_user_entry)
+
+for mood in sleep_data:
+    

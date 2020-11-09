@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Sleep Journal Home{% endblock %}
+
+{% block body %}
+  <h1>Welcome to Sleep Journal!</h1>
+
+  <h2>What would you like to do?</h2>
+  <ul>
+    <li><a href="/todays-entry">Log today's sleep time and entry</a></li>
+    <li><a href="/calendar">Select a date</a></li>
+    <li><a href="/user_entries">View sleep history</a></li>
+    <li><a href="/sleep-insights">View sleep insights</a></li>
+  </ul>
+{% endblock %}

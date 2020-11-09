@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ user_entry.datetime_of_input }} - Details{% endblock %}
+
+{% block body %}
+<h1>{{ user_entry.datetime_of_input }}</h1>
+
+<p>
+  {{ user_entry.sleeptime }}
+</p>
+
+<p>
+    {{ user_entry.waketime }}
+</p>
+
+<p>
+    {{ user_entry.sleep_quality }}
+</p>
+
+<p>
+    {{ user_entry.stress_level }}
+</p>
+
+<p>
+    {{ user_entry.energy_level }}
+</p>
+
+<p>
+    {{ user_entry.productivity_level }}
+</p>
+
+<p>
+    {{ user_entry.exercise_level }}
+</p>
+
+<p>
+    {{ user_entry.alcoholic_units }}
+</p>
+
+<img src="{{ movie.poster_path }}">
+{% endblock %}
+
+
+
+    <!-- datetime_of_input = db.Column(db.DateTime, nullable=False)
+    datetime_of_entry = db.Column(db.DateTime, nullable=False)
+    sleeptime = db.Column(db.DateTime)
+    waketime = db.Column(db.DateTime)
+    sleep_quality = db.Column(db.Integer, nullable=False)
+    stress_level = db.Column(db.Integer)
+    energy_level = db.Column(db.Integer)
+    productivity_level = db.Column(db.Integer)
+    exercise_level = db.Column(db.Integer)
+    alcoholic_units = db.Column(db.Integer) -->
