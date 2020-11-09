@@ -24,11 +24,37 @@ for n in range(10):
     for _ in range(10):
         
 
-moods = ['Happy', 'Calm', 'Content', 'Excited', 'Anxious', 'Depressed', 'Irritated', 'Angry', 'Self critical', 'Confued', 'Add another']
+moods = {
+    1: 'Happy', 
+    2: 'Calm', 
+    3: 'Content', 
+    4: 'Excited', 
+    5: 'Anxious', 
+    6: 'Depressed', 
+    7: 'Irritated', 
+    8: 'Angry', 
+    9: 'Self critical', 
+    10: 'Confused', 
+    11: 'Add another',
+}
 
-medications = ['None', 'Add medication and dosage']
+medications = {
+    1: 'None', 
+    2: 'Add medication and dosage',
+}
 
-symptoms = ['Fatigue', 'Nausea', 'Pain', 'Headache', 'Migrane', 'Flu', 'Constipation', 'Diarrhea', 'Bloating', 'Add another']
+symptoms = {
+    1: 'Fatigue', 
+    2: 'Nausea', 
+    3: 'Pain', 
+    4: 'Headache', 
+    5: 'Migrane', 
+    6: 'Flu', 
+    7: 'Constipation', 
+    8: 'Diarrhea', 
+    9: 'Bloating', 
+    10: 'Add another',
+}
 
 
 
