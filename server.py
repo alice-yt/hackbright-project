@@ -33,19 +33,19 @@ def show_user_entry(user_entry_id):
 
     return render_template('user_entry_details.html', user_entry=user_entry)
 
-# @app.route('/users/<user_id>')
-# def show_user(user_id):
-#     """Show user details"""
-#     user = crud.get_user_by_id(user_id)
+@app.route('/users')
+def all_users():
 
-#     return render_template('user_details.html', user=user)
+    users = crud.get_users()
 
-# @app.route('/users')
-# def all_users():
+    return render_template('all_users.html', users=users)  
 
-#     users = crud.get_users()
+@app.route('/users/<user_id>')
+def show_user(user_id):
+    """Show user details"""
+    user = crud.get_user_by_id(user_id)
 
-#     return render_template('all_users.html', users=users)  
+    return render_template('user_details.html', user=user)
 
 # @app.route('/users', methods=['POST'])
 # def register_user():

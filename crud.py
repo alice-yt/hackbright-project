@@ -13,6 +13,16 @@ def create_user(full_name, email, password):
 
     return user
 
+def get_users():
+    """Get list of users"""
+
+    return User.query.all()
+
+def get_user_by_id(user_id):
+    """Gets user by id"""
+
+    return User.query.get(user_id)
+
 def create_user_entry(datetime_of_input, datetime_of_entry, sleeptime, waketime, sleep_quality, stress_level, energy_level, productivity_level, exercise_level, alcoholic_units):
     """Create and return a new user entry."""
 
