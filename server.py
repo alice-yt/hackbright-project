@@ -19,7 +19,7 @@ def homepage():
     return render_template('homepage.html')
 
 @app.route('/user_entries')
-def all_movies():
+def all_user_entries():
     """View all user entries."""
 
     user_entries = crud.get_user_entries()
