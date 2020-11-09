@@ -32,33 +32,30 @@ def create_user_entry(datetime_of_input, datetime_of_entry, sleeptime, waketime,
 
     return user_entry
 
-def create_mood(mood_id, mood):
+def create_mood(mood):
     """Create and return a new mood."""
     
-    mood = Mood(mood_id=mood_id,
-                mood=mood)
+    mood = Mood(mood=mood)
     
     db.session.add(mood)
     db.session.commit()
 
     return mood
 
-def create_medication(medication_id, medication):
+def create_medication(medication):
     """Create and return a new medication."""
     
-    medication = Medication(medication_id=medication_id,
-                            medication=medication)
+    medication = Medication(medication=medication)
     
     db.session.add(medication)
     db.session.commit()
 
     return medication
 
-def create_symptom(symptom_id, symptom):
+def create_symptom(symptom):
     """Create and return a new symptom."""
     
-    symptom = Symptom(symptom_id=symptom_id,
-                      symptom=symptom)
+    symptom = Symptom(symptom=symptom)
     
     db.session.add(symptom)
     db.session.commit()
