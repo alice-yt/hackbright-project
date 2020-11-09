@@ -24,8 +24,6 @@ class User_entry(db.Model):
 
     user_entry_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable=False)
-    datetime_of_input = db.Column(db.DateTime, nullable=False)
-    datetime_of_entry = db.Column(db.DateTime, nullable=False)
     sleeptime = db.Column(db.DateTime)
     waketime = db.Column(db.DateTime)
     sleep_quality = db.Column(db.Integer, nullable=False)

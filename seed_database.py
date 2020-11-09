@@ -29,9 +29,6 @@ for user_entry in sleep_data:
                                                                                                       user_entry['productivity_level'], 
                                                                                                       user_entry['exercise_level'], 
                                                                                                       user_entry['alcoholic_units'])
-
-    datetime_of_input = datetime.strptime(user_entry['datetime_of_input'], '%c')
-    datetime_of_entry = datetime.strptime(user_entry['datetime_of_entry'], '%c')
     sleeptime = datetime.strptime(user_entry['sleeptime'], '%c') 
     waketime = datetime.strptime(user_entry['waketime'], '%c')  
 
@@ -49,4 +46,4 @@ for user_entry in sleep_data:
     sleepdata_in_db.append(db_user_entry)
 
 for mood in sleep_data:
-    
+
