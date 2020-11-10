@@ -5,6 +5,7 @@ import json
 from random import random
 from datetime import datetime
 from faker import Faker
+fake = Faker()
 
 import crud
 import model
@@ -38,73 +39,93 @@ model.db.create_all()
     # how should this data be captured and returned?
     # where to put users in a list and use random choice to associate random data with random users
 
-Faker.seed(0)
 for user in range(10):
-    fake.name()
-    fake.email(domain=None)
-    fake.password(length=10, special_chars=True, digits=True, upper_case=True, lower_case=True)
+    name = fake.name()
+    email = fake.email(domain=None)
+    password = fake.password(length=10, special_chars=True, digits=True, upper_case=True, lower_case=True)
+
+    user = model.User(full_name=name, email=email, password=password)
+    model.db.session.add(user)
+    model.db.session.commit()
 
     for user_entry in range(250):
-        random_sleeptime = date_time_between_dates(datetime_start=2019-01-01, datetime_end=2019-12-31, tzinfo=None)
-        random_hours_of_sleep = random.randint(4, 13)
-        random_waketime = random_sleeptime + random_hours_of_sleep
+        # start = datetime.fromisoformat('2019-01-01')
+        start = datetime(2019, 5, 18, 15, 17, 8, 132263)
+        # end = datetime.fromisoformat('2019-12-31')
+        end = datetime(2019, 12, 18, 15, 17, 8, 132263)
+        print('LOOK FOR THIS', start)
+        print(end)
+        sleeptime = fake.date_time_between_dates(datetime_start=start, datetime_end=end)
+        hours_of_sleep = random.randint(4, 13)
+        waketime = random_sleeptime + random_hours_of_sleep
     
-    for sleep_quality in range(250):
-        random_sleep_quality = random.randint(0, 5)
+        sleep_quality = random.randint(0, 5)
     
-    for stress_level in range(250):
-        random_stress_level = random.randint(0, 5)
+        stress_level = random.randint(0, 5)
 
-    for energy_level in range(250):
-        random_stress_level = random.randint(0, 5)
+        energy_level = random.randint(0, 5)
     
-    for productivity_level in range(250):
-        random_stress_level = random.randint(0, 5)
+        productivity_level = random.randint(0, 5)
 
-    for exercise_level in range(250):
-        random_stress_level = random.randint(0, 5)
+        exercise_level = random.randint(0, 5)
     
-    for alcoholic_units in range(250):
         list_of_alcoholic_units = ['0', '1', '2', '3', '4', '5+']
         random.choice(list_of_alcoholic_units)
 
-    for moods in range(250):
-        moods = {
-            1: 'Happy', 
-            2: 'Calm', 
-            3: 'Content', 
-            4: 'Excited', 
-            5: 'Anxious', 
-            6: 'Depressed', 
-            7: 'Irritated', 
-            8: 'Angry', 
-            9: 'Self critical', 
-            10: 'Confused', 
-            11: 'Add another',
-        }
-    random.choice(list(moods.values()))
+        user_entry = User_entry(sleeptime=sleeptime, waketime=waketime, sleep_quality=sleep_quality, stress_level=stress_level, energy_level=energy_level, productivity_level=productivity_level, exercise_level=exercise_level, alcoholic_units=list_of_alcoholic_units)
+        db.session.add(user_entry)
+        db.session.commit()
 
-    for medications in range(250):
-    medications = {
-        1: 'None', 
-        2: 'Add medication and dosage',
-    }
-    random.choice(list(medications.values()))
+        # sleeptime = db.Column(db.DateTime)
+        # waketime = db.Column(db.DateTime)
+        # sleep_quality = db.Column(db.Integer, nullable=False)
+        # stress_level = db.Column(db.Integer)
+        # energy_level = db.Column(db.Integer)
+        # productivity_level = db.Column(db.Integer)
+        # exercise_level = db.Column(db.Integer)
+        # alcoholic_units = db.Column(db.Integer)
 
-    for symptoms in range(250):
-        symptoms = {
-            1: 'Fatigue', 
-            2: 'Nausea', 
-            3: 'Pain', 
-            4: 'Headache', 
-            5: 'Migrane', 
-            6: 'Flu', 
-            7: 'Constipation', 
-            8: 'Diarrhea', 
-            9: 'Bloating', 
-            10: 'Add another',
-        }
-        random.choice(list(symptoms.values()))
+    # for moods in range(250):
+    #     moods = {
+    #         1: 'Happy', 
+    #         2: 'Calm', 
+    #         3: 'Content', 
+    #         4: 'Excited', 
+    #         5: 'Anxious', 
+    #         6: 'Depressed', 
+    #         7: 'Irritated', 
+    #         8: 'Angry', 
+    #         9: 'Self critical', 
+    #         10: 'Confused', 
+    #         11: 'Add another',
+    #     }
+    #     random.choice(list(moods.values()))
+
+    # for medications in range(250):
+    #     medications = {
+    #         1: 'None', 
+    #         2: 'Add medication and dosage',
+    #     }
+    #     random.choice(list(medications.values()))
+
+    # for symptoms in range(250):
+    #     symptoms = {
+    #         1: 'Fatigue', 
+    #         2: 'Nausea', 
+    #         3: 'Pain', 
+    #         4: 'Headache', 
+    #         5: 'Migrane', 
+    #         6: 'Flu', 
+    #         7: 'Constipation', 
+    #         8: 'Diarrhea', 
+    #         9: 'Bloating', 
+    #         10: 'Add another',
+    #     }
+    #     random.choice(list(symptoms.values()))
+
+
+
+
 
 
 # Load sleep data from JSON file

@@ -31,7 +31,7 @@ class User_entry(db.Model):
     energy_level = db.Column(db.Integer)
     productivity_level = db.Column(db.Integer)
     exercise_level = db.Column(db.Integer)
-    alcoholic_units = db.Column(db.Integer)
+    alcoholic_units = db.Column(db.String)
 
     user = db.relationship('User')
 
