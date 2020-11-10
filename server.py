@@ -71,7 +71,7 @@ def login_user():
     user = crud.get_user_by_email(email)
     if user.password == password:
         session['user'] = User.user_id
-            flash('Logged in!')
+        flash('Logged in!')
         
     else:
         flash('This email is not recognized in our system')

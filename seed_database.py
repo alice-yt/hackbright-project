@@ -3,7 +3,7 @@
 import os
 import json
 import random
-from datetime import datetime
+from datetime import datetime, timedelta
 from faker import Faker
 fake = Faker()
 
@@ -50,14 +50,14 @@ for user in range(10):
 
     for user_entry in range(250):
         # start = datetime.fromisoformat('2019-01-01')
-        start = datetime(2019, 5, 18, 15, 17, 8, 132263)
+        start = datetime(2019, 1, 1, 0, 0, 0, 0)
         # end = datetime.fromisoformat('2019-12-31')
-        end = datetime(2019, 12, 18, 15, 17, 8, 132263)
-        print('LOOK FOR THIS', start)
-        print(end)
+        end = datetime(2019, 12, 31, 23, 59, 59, 0)
+        # print('LOOK FOR THIS', start)
+        # print(end)
         sleeptime = fake.date_time_between_dates(datetime_start=start, datetime_end=end)
         # hours_of_sleep = random.randint(4, 13)
-        # waketime = sleeptime + hours_of_sleep
+        waketime = sleeptime + timedelta(hours=9)
     
         sleep_quality = random.randint(0, 5)
     
@@ -72,7 +72,7 @@ for user in range(10):
         list_of_alcoholic_units = ['0', '1', '2', '3', '4', '5+']
         random.choice(list_of_alcoholic_units)
 
-        user_entry = model.User_entry(sleeptime=sleeptime, sleep_quality=sleep_quality, stress_level=stress_level, energy_level=energy_level, productivity_level=productivity_level, exercise_level=exercise_level, alcoholic_units=list_of_alcoholic_units)
+        user_entry = model.User_entry(user_id=user.user_id, sleeptime=sleeptime, waketime=waketime, sleep_quality=sleep_quality, stress_level=stress_level, energy_level=energy_level, productivity_level=productivity_level, exercise_level=exercise_level, alcoholic_units=list_of_alcoholic_units)
         model.db.session.add(user_entry)
         model.db.session.commit()
 
@@ -85,43 +85,42 @@ for user in range(10):
         # exercise_level = db.Column(db.Integer)
         # alcoholic_units = db.Column(db.Integer)
 
-    # for moods in range(250):
-    #     moods = {
-    #         1: 'Happy', 
-    #         2: 'Calm', 
-    #         3: 'Content', 
-    #         4: 'Excited', 
-    #         5: 'Anxious', 
-    #         6: 'Depressed', 
-    #         7: 'Irritated', 
-    #         8: 'Angry', 
-    #         9: 'Self critical', 
-    #         10: 'Confused', 
-    #         11: 'Add another',
-    #     }
-    #     random.choice(list(moods.values()))
+for moods in range(250):
+    moods = {
+            1: 'Happy', 
+            2: 'Calm', 
+            3: 'Content', 
+            4: 'Excited', 
+            5: 'Anxious', 
+            6: 'Depressed', 
+            7: 'Irritated', 
+            8: 'Angry', 
+            9: 'Self critical', 
+            10: 'Confused', 
+        }
+    random.choice(list(moods.values()))
 
-    # for medications in range(250):
-    #     medications = {
-    #         1: 'None', 
-    #         2: 'Add medication and dosage',
-    #     }
-    #     random.choice(list(medications.values()))
+for medications in range(250):
+    medications = {
+        1: 'None', 
+        2: 'Add medication and dosage',
+    }
+    random.choice(list(medications.values()))
 
-    # for symptoms in range(250):
-    #     symptoms = {
-    #         1: 'Fatigue', 
-    #         2: 'Nausea', 
-    #         3: 'Pain', 
-    #         4: 'Headache', 
-    #         5: 'Migrane', 
-    #         6: 'Flu', 
-    #         7: 'Constipation', 
-    #         8: 'Diarrhea', 
-    #         9: 'Bloating', 
-    #         10: 'Add another',
-    #     }
-    #     random.choice(list(symptoms.values()))
+for symptoms in range(250):
+    symptoms = {
+        1: 'Fatigue', 
+        2: 'Nausea', 
+        3: 'Pain', 
+        4: 'Headache', 
+        5: 'Migrane', 
+        6: 'Flu', 
+        7: 'Constipation', 
+        8: 'Diarrhea', 
+        9: 'Bloating', 
+        10: 'Add another',
+    }
+    random.choice(list(symptoms.values()))
 
 
 
