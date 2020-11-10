@@ -56,7 +56,7 @@ for user in range(10):
         # print('LOOK FOR THIS', start)
         # print(end)
         sleeptime = fake.date_time_between_dates(datetime_start=start, datetime_end=end)
-        # hours_of_sleep = random.randint(4, 13)
+        
         waketime = sleeptime + timedelta(hours=9)
     
         sleep_quality = random.randint(0, 5)
@@ -85,75 +85,53 @@ for user in range(10):
         # exercise_level = db.Column(db.Integer)
         # alcoholic_units = db.Column(db.Integer)
 
-for moods in range(250):
-    moods = {
-            1: 'Happy', 
-            2: 'Calm', 
-            3: 'Content', 
-            4: 'Excited', 
-            5: 'Anxious', 
-            6: 'Depressed', 
-            7: 'Irritated', 
-            8: 'Angry', 
-            9: 'Self critical', 
-            10: 'Confused', 
-        }
+moods = {
+    1: 'Happy', 
+    2: 'Calm', 
+    3: 'Content', 
+    4: 'Excited', 
+    5: 'Anxious', 
+    6: 'Depressed', 
+    7: 'Irritated', 
+    8: 'Angry', 
+    9: 'Self critical', 
+    10: 'Confused', 
+}
+
+for key in moods:
     random.choice(list(moods.values()))
 
-for medications in range(250):
-    medications = {
-        1: 'None', 
-        2: 'Add medication and dosage',
-    }
+    mood = model.Mood(mood=mood)
+    model.db.session.add(mood)
+    model.db.session.commit()
+
+medications = {
+    1: 'None', 
+}
+
+for key in medications:
     random.choice(list(medications.values()))
 
-for symptoms in range(250):
-    symptoms = {
-        1: 'Fatigue', 
-        2: 'Nausea', 
-        3: 'Pain', 
-        4: 'Headache', 
-        5: 'Migrane', 
-        6: 'Flu', 
-        7: 'Constipation', 
-        8: 'Diarrhea', 
-        9: 'Bloating', 
-        10: 'Add another',
-    }
+    medication = model.Medication(medication=medication)
+    model.db.session.add(medication)
+    model.db.session.commit()
+
+symptoms = {
+    1: 'Fatigue', 
+    2: 'Nausea', 
+    3: 'Pain', 
+    4: 'Headache', 
+    5: 'Migrane', 
+    6: 'Flu', 
+    7: 'Constipation', 
+    8: 'Diarrhea', 
+    9: 'Bloating', 
+}
+
+for key in symptoms:
     random.choice(list(symptoms.values()))
 
-
-
-
-
-
-# Load sleep data from JSON file
-# with open('data/sleepdata.json') as f:
-#     sleep_data = json.loads(f.read())
-
-# Create sleep data, store them in list so we can use them
-# to create fake sleep entries
-# sleepdata_in_db = []
-# for user_entry in sleep_data:    
-#     sleep_quality, stress_level, energy_level, productivity_level, exercise_level, alcoholic_units = (user_entry['sleep_quality'], 
-#                                                                                                       user_entry['stress_level'], 
-#                                                                                                       user_entry['energy_level'], 
-#                                                                                                       user_entry['productivity_level'], 
-#                                                                                                       user_entry['exercise_level'], 
-#                                                                                                       user_entry['alcoholic_units'])
-#     sleeptime = datetime.strptime(user_entry['sleeptime'], '%c') 
-#     waketime = datetime.strptime(user_entry['waketime'], '%c')  
-
-#     db_user_entry = crud.create_user_entry(datetime_of_input, 
-#                                            datetime_of_entry, 
-#                                            sleeptime, 
-#                                            waketime, 
-#                                            sleep_quality, 
-#                                            stress_level, 
-#                                            energy_level, 
-#                                            productivity_level, 
-#                                            exercise_level, 
-#                                            alcoholic_units)
-
-#     sleepdata_in_db.append(db_user_entry)
+    symptom = model.Symptom(symptom=symptom)
+    model.db.session.add(symptom)
+    model.db.session.commit()
 
