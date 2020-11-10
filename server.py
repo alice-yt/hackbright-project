@@ -47,38 +47,36 @@ def show_user(user_id):
 
     return render_template('user_details.html', user=user)
 
-# @app.route('/users', methods=['POST'])
-# def register_user():
-#     """Create User"""
-#     email = request.form.get('email')
-#     password = request.form.get('password')
+@app.route('/users', methods=['POST'])
+def register_user():
+    """Create User"""
+    email = request.form.get('email')
+    password = request.form.get('password')
 
-#     user = crud.get_user_by_email(email)
-#     if user:
-#         flash('Cannot create an account with that email. Try again')
-#     else:
-#         crud.create_user(email,password)
-#         flash('Account created! Please log in.')
+    user = crud.get_user_by_email(email)
+    if user:
+        flash('Cannot create an account with that email. Please try again.')
+    else:
+        crud.create_user(email,password)
+        flash('Account created! Please log in.')
 
-#     return redirect('/')
+    return redirect('/')
 
-# @app.route('/login', methods=['POST'])
-# def login_user():
-#     """Login User"""
-#     email = request.form.get('email')
-#     password = request.form.get('password')
+@app.route('/login', methods=['POST'])
+def login_user():
+    """Login User"""
+    email = request.form.get('email')
+    password = request.form.get('password')
 
-#     user = crud.get_user_by_email(email)
-#     if user:
-#         if password == user.password:
-#             flash('Logged in!')
+    user = crud.get_user_by_email(email)
+    if user.password == password:
+        session['user'] = User.user_id
+            flash('Logged in!')
         
-#     else:
-#         flash('This email is not recognized in our system')
-#         # crud.create_user(email,password)
-#         # flash('Account created! Please log in.')
+    else:
+        flash('This email is not recognized in our system')
 
-#     return redirect('/')
+    return redirect('/')
   
 
 if __name__ == '__main__':
