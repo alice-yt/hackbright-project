@@ -2,7 +2,7 @@
 
 import os
 import json
-from random import random
+import random
 from datetime import datetime
 from faker import Faker
 fake = Faker()
@@ -56,8 +56,8 @@ for user in range(10):
         print('LOOK FOR THIS', start)
         print(end)
         sleeptime = fake.date_time_between_dates(datetime_start=start, datetime_end=end)
-        hours_of_sleep = random.randint(4, 13)
-        waketime = random_sleeptime + random_hours_of_sleep
+        # hours_of_sleep = random.randint(4, 13)
+        # waketime = sleeptime + hours_of_sleep
     
         sleep_quality = random.randint(0, 5)
     
@@ -72,9 +72,9 @@ for user in range(10):
         list_of_alcoholic_units = ['0', '1', '2', '3', '4', '5+']
         random.choice(list_of_alcoholic_units)
 
-        user_entry = User_entry(sleeptime=sleeptime, waketime=waketime, sleep_quality=sleep_quality, stress_level=stress_level, energy_level=energy_level, productivity_level=productivity_level, exercise_level=exercise_level, alcoholic_units=list_of_alcoholic_units)
-        db.session.add(user_entry)
-        db.session.commit()
+        user_entry = model.User_entry(sleeptime=sleeptime, sleep_quality=sleep_quality, stress_level=stress_level, energy_level=energy_level, productivity_level=productivity_level, exercise_level=exercise_level, alcoholic_units=list_of_alcoholic_units)
+        model.db.session.add(user_entry)
+        model.db.session.commit()
 
         # sleeptime = db.Column(db.DateTime)
         # waketime = db.Column(db.DateTime)
