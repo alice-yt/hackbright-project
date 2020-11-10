@@ -39,6 +39,61 @@ model.db.create_all()
     # how should this data be captured and returned?
     # where to put users in a list and use random choice to associate random data with random users
 
+moods = {
+    1: 'Happy', 
+    2: 'Calm', 
+    3: 'Content', 
+    4: 'Excited', 
+    5: 'Anxious', 
+    6: 'Depressed', 
+    7: 'Irritated', 
+    8: 'Angry', 
+    9: 'Self critical', 
+    10: 'Confused', 
+}
+
+mood_obj = []
+
+for key in moods:
+    mood_text = random.choice(list(moods.values()))
+
+    mood = model.Mood(mood=mood_text)
+    mood_obj.append(mood)
+    model.db.session.add(mood)
+    model.db.session.commit()
+
+medications = {
+    1: 'None', 
+}
+
+for key in medications:
+    medication = random.choice(list(medications.values()))
+
+    medication = model.Medication(medication=medication)
+    model.db.session.add(medication)
+    model.db.session.commit()
+
+symptoms = {
+    1: 'Fatigue', 
+    2: 'Nausea', 
+    3: 'Pain', 
+    4: 'Headache', 
+    5: 'Migrane', 
+    6: 'Flu', 
+    7: 'Constipation', 
+    8: 'Diarrhea', 
+    9: 'Bloating', 
+}
+
+for key in symptoms:
+    symptom = random.choice(list(symptoms.values()))
+
+    symptom = model.Symptom(symptom=symptom)
+    model.db.session.add(symptom)
+    model.db.session.commit()
+
+
+
 for user in range(10):
     name = fake.name()
     email = fake.email(domain=None)
@@ -76,6 +131,16 @@ for user in range(10):
         model.db.session.add(user_entry)
         model.db.session.commit()
 
+        random_moods_added = random.randint(0, 5)
+
+        for _ in range(random_moods_added):
+            random_mood = random.choice(mood_obj)
+        
+            user_entry_mood = model.User_entry_mood(user_entry_id=user_entry.user_entry_id, mood_id=random_mood.mood_id)
+            model.db.session.add(user_entry_mood)
+            model.db.session.commit()
+
+
         # sleeptime = db.Column(db.DateTime)
         # waketime = db.Column(db.DateTime)
         # sleep_quality = db.Column(db.Integer, nullable=False)
@@ -85,53 +150,4 @@ for user in range(10):
         # exercise_level = db.Column(db.Integer)
         # alcoholic_units = db.Column(db.Integer)
 
-moods = {
-    1: 'Happy', 
-    2: 'Calm', 
-    3: 'Content', 
-    4: 'Excited', 
-    5: 'Anxious', 
-    6: 'Depressed', 
-    7: 'Irritated', 
-    8: 'Angry', 
-    9: 'Self critical', 
-    10: 'Confused', 
-}
-
-for key in moods:
-    random.choice(list(moods.values()))
-
-    mood = model.Mood(mood=mood)
-    model.db.session.add(mood)
-    model.db.session.commit()
-
-medications = {
-    1: 'None', 
-}
-
-for key in medications:
-    random.choice(list(medications.values()))
-
-    medication = model.Medication(medication=medication)
-    model.db.session.add(medication)
-    model.db.session.commit()
-
-symptoms = {
-    1: 'Fatigue', 
-    2: 'Nausea', 
-    3: 'Pain', 
-    4: 'Headache', 
-    5: 'Migrane', 
-    6: 'Flu', 
-    7: 'Constipation', 
-    8: 'Diarrhea', 
-    9: 'Bloating', 
-}
-
-for key in symptoms:
-    random.choice(list(symptoms.values()))
-
-    symptom = model.Symptom(symptom=symptom)
-    model.db.session.add(symptom)
-    model.db.session.commit()
 
