@@ -23,12 +23,10 @@ def get_user_by_id(user_id):
 
     return User.query.get(user_id)
 
-def create_user_entry(datetime_of_input, datetime_of_entry, sleeptime, waketime, sleep_quality, stress_level, energy_level, productivity_level, exercise_level, alcoholic_units):
+def create_user_entry(sleeptime, waketime, sleep_quality, stress_level, energy_level, productivity_level, exercise_level, alcoholic_units):
     """Create and return a new user entry."""
 
-    user_entry = User_entry(datetime_of_input=datetime_of_input, 
-                            datetime_of_entry=datetime_of_entry, 
-                            sleeptime=sleeptime, 
+    user_entry = User_entry(sleeptime=sleeptime, 
                             waketime=waketime, 
                             sleep_quality=sleep_quality, 
                             stress_level=stress_level, 
