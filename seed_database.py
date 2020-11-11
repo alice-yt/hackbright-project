@@ -79,21 +79,23 @@ for key in medications:
     medication_dict = random.choice(list(medications.values()))
 
     medication = model.Medication(medication=medication_dict)
+    medication_obj.append(medication)
     model.db.session.add(medication)
     model.db.session.commit()
 
 symptoms = {
-    1: 'Fatigue', 
-    2: 'Nausea', 
-    3: 'Pain', 
-    4: 'Headache', 
-    5: 'Migrane', 
-    6: 'Cold/Flu', 
-    7: 'Allergies'
-    8: 'Heartburn'
-    9: 'Constipation', 
-    10: 'Diarrhea', 
-    11: 'Bloating', 
+    1: 'None',
+    2: 'Fatigue', 
+    3: 'Nausea', 
+    4: 'Pain', 
+    5: 'Headache', 
+    6: 'Migrane', 
+    7: 'Cold/Flu', 
+    8: 'Allergies',
+    9: 'Heartburn',
+    10: 'Constipation', 
+    11: 'Diarrhea', 
+    12: 'Bloating', 
 }
 
 symptom_obj = []
@@ -102,6 +104,7 @@ for key in symptoms:
     symptom_dict = random.choice(list(symptoms.values()))
 
     symptom = model.Symptom(symptom=symptom_dict)
+    symptom_obj.append(symptom)
     model.db.session.add(symptom)
     model.db.session.commit()
 
@@ -142,27 +145,27 @@ for user in range(10):
         model.db.session.add(user_entry)
         model.db.session.commit()
 
-        random_moods_added = random.randint(0, 5)
-        for _ in range(random_moods_added):
+        random_num_moods_added = random.randint(0, 5)
+        for _ in range(random_num_moods_added):
             random_mood = random.choice(mood_obj)
         
             user_entry_mood = model.User_entry_mood(user_entry_id=user_entry.user_entry_id, mood_id=random_mood.mood_id)
             model.db.session.add(user_entry_mood)
             model.db.session.commit()
         
-        random_medications_added = random.randint(0, 1)
-        for _ in range(random_medications_added):
+        random_num_medications_added = random.randint(0, 1)
+        for _ in range(random_num_medications_added):
             random_medication = random.choice(medication_obj)
         
             user_entry_medication = model.User_entry_medication(user_entry_id=user_entry.user_entry_id, medication_id=random_medication.medication_id)
             model.db.session.add(user_entry_medication)
             model.db.session.commit()
 
-        random_symptoms_added = random.randint(0, 2)
-        for _ in range(random_symptoms_added):
+        random_num_symptoms_added = random.randint(0, 2)
+        for _ in range(random_num_symptoms_added):
             random_symptom = random.choice(symptom_obj)
             
-            user_entry_symptom = model.User_entry_mood(user_entry_id=user_entry.user_entry_id, mood_id=random_symptom.symptom_id)
+            user_entry_symptom = model.User_entry_symptom(user_entry_id=user_entry.user_entry_id, symptom_id=random_symptom.symptom_id)
             model.db.session.add(user_entry_symptom)
             model.db.session.commit()
 
