@@ -6,7 +6,7 @@ from datetime import datetime
 def create_user(full_name, email, password):
     """Create and return a new user."""
 
-    user = User(full_name=full_name,email=email, password=password)
+    user = User(full_name=full_name, email=email, password=password)
 
     db.session.add(user)
     db.session.commit()
@@ -22,6 +22,10 @@ def get_user_by_id(user_id):
     """Gets user by id"""
 
     return User.query.get(user_id)
+
+def get_user_by_email(email):
+
+    return User.query.filter(User.email == email).first()
 
 def create_user_entry(sleeptime, waketime, sleep_quality, stress_level, energy_level, productivity_level, exercise_level, alcoholic_units):
     """Create and return a new user entry."""

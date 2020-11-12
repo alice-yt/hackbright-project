@@ -50,14 +50,15 @@ def show_user(user_id):
 @app.route('/users', methods=['POST'])
 def register_user():
     """Create User"""
+    full_name = request.form.get('full_name')
     email = request.form.get('email')
     password = request.form.get('password')
 
     user = crud.get_user_by_email(email)
     if user:
-        flash('Cannot create an account with that email. Please try again.')
+        flash('Cannot create an account with that email. Please try again.')    
     else:
-        crud.create_user(email,password)
+        crud.create_user(full_name, email, password)
         flash('Account created! Please log in.')
 
     return redirect('/')

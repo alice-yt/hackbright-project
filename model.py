@@ -32,11 +32,10 @@ class User_entry(db.Model):
     productivity_level = db.Column(db.Integer)
     exercise_level = db.Column(db.Integer)
     alcoholic_units = db.Column(db.String)
-
     user = db.relationship('User')
 
     def __repr__(self):
-        return f'<User_entry user_entry_id={self.user_entry_id} datetime_of_entry={self.datetime_of_entry} sleep_quality={self.sleep_quality}>'
+        return f'<User_entry user_entry_id={self.user_entry_id} sleeptime={self.sleeptime} waketime={self.waketime} sleep_quality={self.sleep_quality}>'
     
 
 class Mood(db.Model):
