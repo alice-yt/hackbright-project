@@ -16,18 +16,21 @@ app.jinja_env.undefined = StrictUndefined
 @app.route('/')
 def homepage():
     """View login page"""
+
     return render_template('homepage.html')
 
 
 @app.route('/create-account')
 def create_account():
     """View account creation page"""
+
     return render_template('create-account.html')
 
 
 @app.route('/menu')
 def menu():
     """View menu page"""
+
     return render_template('menu.html')
 
 
@@ -43,6 +46,7 @@ def all_user_entries():
 @app.route('/user_entries/<user_entry_id>')
 def show_user_entry(user_entry_id):
     """Show user entry details"""
+
     user_entry = crud.get_user_entry_by_id(user_entry_id)
 
     return render_template('user_entry_details.html', user_entry=user_entry)
@@ -59,14 +63,16 @@ def all_users():
 @app.route('/users/<user_id>')
 def show_user(user_id):
     """Show user details"""
+
     user = crud.get_user_by_id(user_id)
 
     return render_template('user_details.html', user=user)
 
 
-@app.route('/', methods=['POST'])
+@app.route('/create-account', methods=['POST'])
 def register_user():
     """Create User"""
+
     full_name = request.form.get('full_name')
     email = request.form.get('email')
     password = request.form.get('password')
@@ -74,17 +80,18 @@ def register_user():
     user = crud.get_user_by_email(email)
     if user:
         flash('Cannot create an account with that email. Please try again.') 
-        return redirect('/menu')  
 
     else:
         crud.create_user(full_name, email, password)
         flash('Account created! Please log in.')
-        return redirect('/')
+    
+    return redirect('/')
 
 
-@app.route('/login', methods=['GET'])
+@app.route('/', methods=['GET'])
 def login_user():
     """Login User"""
+
     email = request.form.get('email')
     password = request.form.get('password')
 
@@ -92,11 +99,11 @@ def login_user():
     if user.password == password:
         session['user'] = User.user_id
         flash('Logged in!')
-        return redirect('/menu')  
         
     else:
         flash('This email is not recognized in our system')
-        return redirect('/')
+    
+    return redirect('/create-account')
   
 
 if __name__ == '__main__':

@@ -21,7 +21,9 @@ def validate_user_password(password):
 def get_users():
     """Get list of users"""
 
-    return User.query.all()
+    users = User.query.all()
+
+    return users
 
 def get_user_by_id(user_id):
     """Gets user by id"""
