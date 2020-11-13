@@ -14,12 +14,22 @@ app.jinja_env.undefined = StrictUndefined
 
 
 @app.route('/')
-def login():
+def homepage():
+    """View login page"""
     return render_template('homepage.html')
 
-@app.route('menu')
+
+@app.route('/create-account')
+def create_account():
+    """View account creation page"""
+    return render_template('create-account.html')
+
+
+@app.route('/menu')
 def menu():
+    """View menu page"""
     return render_template('menu.html')
+
 
 @app.route('/user_entries')
 def all_user_entries():
@@ -54,7 +64,7 @@ def show_user(user_id):
     return render_template('user_details.html', user=user)
 
 
-@app.route('/users', methods=['POST'])
+@app.route('/', methods=['POST'])
 def register_user():
     """Create User"""
     full_name = request.form.get('full_name')
@@ -63,15 +73,16 @@ def register_user():
 
     user = crud.get_user_by_email(email)
     if user:
-        flash('Cannot create an account with that email. Please try again.')    
+        flash('Cannot create an account with that email. Please try again.') 
+        return redirect('/menu')  
+
     else:
         crud.create_user(full_name, email, password)
         flash('Account created! Please log in.')
+        return redirect('/')
 
-    return redirect('/')
 
-
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['GET'])
 def login_user():
     """Login User"""
     email = request.form.get('email')
@@ -81,11 +92,11 @@ def login_user():
     if user.password == password:
         session['user'] = User.user_id
         flash('Logged in!')
+        return redirect('/menu')  
         
     else:
         flash('This email is not recognized in our system')
-
-    return redirect('/')
+        return redirect('/')
   
 
 if __name__ == '__main__':

@@ -13,6 +13,11 @@ def create_user(full_name, email, password):
 
     return user
 
+def validate_user_password(password):
+    """Checks for valid password on login"""
+    
+    return User.query.filter(User.password == password).first()
+
 def get_users():
     """Get list of users"""
 
