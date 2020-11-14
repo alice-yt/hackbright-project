@@ -122,6 +122,12 @@ def login_user():
     return redirect('/create_account')
   
 
+@app.route('/enter_entry', methods=['POST'])
+def add_sleep_wake_time():
+    """Save sleep and wake time that user submits"""
+
+
+
 if __name__ == '__main__':
     connect_to_db(app)
     app.run(host='0.0.0.0', debug=True)
