@@ -24,7 +24,7 @@ def homepage():
 def create_account():
     """View account creation page"""
 
-    return render_template('create-account.html')
+    return render_template('create_account.html')
 
 
 @app.route('/menu')
@@ -50,7 +50,8 @@ def all_user_entries():
     return render_template('all_user_entries.html', user_entries=user_entries)
 
 
-@app.route('/user_entries/<user_entry_id>')
+# check what this is doing
+@app.route('/user_entries/<user_entry_id>') 
 def show_user_entry(user_entry_id):
     """Show user entry details"""
 
@@ -74,6 +75,7 @@ def all_users():
     return render_template('all_users.html', users=users)  
 
 
+# check what this is doing
 @app.route('/users/<user_id>')
 def show_user(user_id):
     """Show user details"""
@@ -117,7 +119,7 @@ def login_user():
     else:
         flash('This email is not recognized in our system')
     
-    return redirect('/create-account')
+    return redirect('/create_account')
   
 
 if __name__ == '__main__':
