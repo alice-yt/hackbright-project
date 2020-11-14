@@ -89,9 +89,9 @@ def show_user(user_id):
 def register_user():
     """Create User"""
 
-    full_name = request.form.get('full_name')
-    email = request.form.get('email')
-    password = request.form.get('password')
+    full_name = request.form.get('full-name')
+    email = request.form.get('create-email')
+    password = request.form.get('create-password')
 
     user = crud.get_user_by_email(email)
     if user:
@@ -108,8 +108,8 @@ def register_user():
 def login_user():
     """Login User"""
 
-    email = request.form.get('email')
-    password = request.form.get('password')
+    email = request.form.get('login-email')
+    password = request.form.get('login-password')
 
     user = crud.get_user_by_email(email)
     if user.password == password:
@@ -119,7 +119,7 @@ def login_user():
     else:
         flash('This email is not recognized in our system')
     
-    return redirect('/create_account')
+    return redirect('/menu')
   
 
 @app.route('/enter_entry', methods=['POST'])
