@@ -20,7 +20,7 @@ def homepage():
     return render_template('homepage.html')
 
 
-@app.route('/create-account')
+@app.route('/create_account')
 def create_account():
     """View account creation page"""
 
@@ -34,9 +34,16 @@ def menu():
     return render_template('menu.html')
 
 
+@app.route('/enter_entry')
+def log_entry():
+    """Log sleep and wake time"""
+
+    return render_template('enter_entry.html')
+
+
 @app.route('/user_entries')
 def all_user_entries():
-    """View all user entries."""
+    """View all user entries"""
 
     user_entries = crud.get_user_entries()
 
@@ -50,6 +57,13 @@ def show_user_entry(user_entry_id):
     user_entry = crud.get_user_entry_by_id(user_entry_id)
 
     return render_template('user_entry_details.html', user_entry=user_entry)
+
+
+@app.route('/sleep_insights')
+def view_sleep_analysis():
+    """View charts and analysis of sleep"""
+
+    return render_template('sleep_insights.html')
 
 
 @app.route('/users')
@@ -69,7 +83,7 @@ def show_user(user_id):
     return render_template('user_details.html', user=user)
 
 
-@app.route('/create-account', methods=['POST'])
+@app.route('/create_account', methods=['POST'])
 def register_user():
     """Create User"""
 

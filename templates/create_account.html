@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Sleep Journal Home{% endblock %}
+
+{% block body %}
+  <h1>Welcome to Sleep Journal!</h1>
+
+  <h2>Create an Account</h2>
+  <form action="/create-account" method="POST" name="create-acct">
+      <p>
+        Full Name <input type="text" name="full-name" required=True>
+      </p>
+
+      <p>
+        Email <input type="text" name="create-email" required=True>
+      </p>
+
+      <p>
+        Password <input type="password" name="create-password" required=True>
+      </p>
+
+      <p>
+        <input type="submit">
+      </p>
+
+    </form>
+
+{% endblock %}
