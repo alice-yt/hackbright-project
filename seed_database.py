@@ -125,8 +125,12 @@ for user in range(10):
         end = datetime(2019, 12, 31, 23, 59, 59, 0)
 
         sleeptime = fake.date_time_between_dates(datetime_start=start, datetime_end=end)
+
+        random_sleep_hrs = random.randint(4, 12)
+
+        waketime = sleeptime + timedelta(hours=random_sleep_hrs)
         
-        waketime = sleeptime + timedelta(hours=9)
+        # waketime = sleeptime + timedelta(hours=9)
     
         sleep_quality = random.randint(0, 5)
     

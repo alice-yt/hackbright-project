@@ -107,16 +107,19 @@ def register_user():
 @app.route('/', methods=['GET'])
 def login_user():
     """Login User"""
-
+    print('LOGIN')
     email = request.form.get('login-email')
     password = request.form.get('login-password')
 
     user = crud.get_user_by_email(email)
+    print('USER')
     if user.password == password:
-        session['user'] = User.user_id
+        print('user password')
+        # session['user'] = User.user_id
         flash('Logged in!')
         
     else:
+        print('no user')
         flash('This email is not recognized in our system')
     
     return redirect('/menu')
