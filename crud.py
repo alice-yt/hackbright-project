@@ -91,6 +91,11 @@ def create_symptom(symptom):
 
     return symptom
 
+# def create_sleep_time(sleeptime)
+
+# def create_wake_time(waketime)
+
+
 # def get_movies():
 #     """Create and return all movies."""
 

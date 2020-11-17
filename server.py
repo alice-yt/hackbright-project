@@ -35,10 +35,17 @@ def menu():
 
 
 @app.route('/enter_entry')
-def log_entry():
+def log_sleeptimes():
     """Log sleep and wake time"""
 
     return render_template('enter_entry.html')
+
+
+@app.route('/sleep_entry')
+def log_entry():
+    """Log entry"""
+
+    return render_template('sleep_entry.html')
 
 
 @app.route('/user_entries')
