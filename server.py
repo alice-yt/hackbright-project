@@ -34,11 +34,11 @@ def menu():
     return render_template('menu.html')
 
 
-@app.route('/enter_entry')
+@app.route('/time_entry')
 def log_sleeptimes():
     """Log sleep and wake time"""
 
-    return render_template('enter_entry.html')
+    return render_template('time_entry.html')
 
 
 @app.route('/sleep_entry')
