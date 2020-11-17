@@ -41,11 +41,19 @@ def log_sleeptimes():
     return render_template('time_entry.html')
 
 
-@app.route('/sleep_entry')
+@app.route('/journal_entry')
 def log_entry():
     """Log entry"""
 
-    return render_template('sleep_entry.html')
+    return render_template('journal_entry.html')
+
+
+# experimenting with combining two pages of forms into one
+@app.route('/log_entry')
+def log_combined_entry():
+    """Log entry"""
+
+    return render_template('combined_form.html')
 
 
 @app.route('/user_entries')
@@ -132,10 +140,47 @@ def login_user():
     return redirect('/menu')
   
 
-@app.route('/enter_entry', methods=['POST'])
+#cannot click submit button
+@app.route('/time_entry', methods=['POST'])
 def add_sleep_wake_time():
     """Save sleep and wake time that user submits"""
 
+    sleep_time = request.form.get('sleep-time')
+    wake_time = request.form.get('wake-time')
+
+    user_entry = crud.create_user_entry(sleeptime, waketime, sleep_quality, stress_level, energy_level, productivity_level, exercise_level, alcoholic_units)
+
+    return redirect('/journal_entry')
+
+
+@app.route('/journal_entry', methods=['POST'])
+def add_nine_input_fields():
+    """Save 6 slider control inputs and 3 checkbox inputs that user submits"""
+
+
+#cannot click submit button
+@app.route('/log_entry', methods=['POST'])
+def add_time_and_input_fields():
+    sleep_time = request.form.get('sleep-time')
+    wake_time = request.form.get('wake-time')
+    sleep_quality = request.form.get('sleep_quality')
+    stress = request.form.get('stress')
+    energy = request.form.get('energy')
+    productivity = request.form.get('productivity')
+    exercise = request.form.get('exercise')
+    alcoholic_units = request.form.get('alcoholic_units')
+
+    user_entry = crud.create_user_entry(sleeptime, waketime, sleep_quality, stress_level, energy_level, productivity_level, exercise_level, alcoholic_units)
+
+    mood = request.form.get('mood')
+    medication = request.form.get('medication')
+    symptom = request.form.get('symptom')
+
+    user_entry_mood = crud.create_mood(mood)
+    user_entry_medication = crud.create_medication(medication)
+    user_entry_symptom = crud.create_symptom(symptom)
+
+    return redirect('/menu')
 
 
 if __name__ == '__main__':
