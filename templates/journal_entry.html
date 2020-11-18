@@ -18,25 +18,7 @@
     {% endfor %}
 
     {% block body %}
-    <form action="/log_entry" method="POST" name="add_time_and_input_fields">
-  
-    <h2>Enter Sleep & Wake Time</h2>
-  
-    <label for="sleeptime">Sleep Time:</label>
-  
-    <input type="datetime-local" id="sleeptime"
-           name="sleeptime" value="2020-11-13T00:00"
-           min="2018-01-01T00:00" max="2020-12-31T00:00">
-  
-    <br>
-    <br>
-  
-    <label for="waketime">Wake Time:</label>
-  
-    <input type="datetime-local" id="waketime"
-           name="waketime" value="2020-11-13T00:00"
-           min="2018-01-01T00:00" max="2020-12-31T00:00">
-  
+  <form action="/journal_entry" method="POST" name="add_nine_input_fields"></form>
   <h2>Log Entry</h2>
 
   <label for="sleep_quality">Sleep Quality</label>
@@ -109,6 +91,7 @@
     <label>Self critical</label>
     <input type="checkbox" name="mood" value="confused">
     <label>Confused</label>
+  </form>
 
   <br>
   <br>
@@ -146,6 +129,7 @@
     <label>Diarrhea</label>
     <input type="checkbox" name="symptom" value="Bloating">
     <label>bloating</label>
+  </form>
 
   <br>
   <br>
@@ -173,11 +157,6 @@
     <label>Antacid</label>
     <input type="checkbox" name="medication" value="pepto_bismol">
     <label>Pepto Bismol</label>
-
-    <p>
-        <input type="submit">
-    </p>
-
   </form>
 
 
