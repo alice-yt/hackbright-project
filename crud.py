@@ -34,10 +34,11 @@ def get_user_by_email(email):
 
     return User.query.filter(User.email == email).first()
 
-def create_user_entry(sleeptime, waketime, sleep_quality, stress_level, energy_level, productivity_level, exercise_level, alcoholic_units):
+def create_user_entry(user_id, sleeptime, waketime, sleep_quality, stress_level, energy_level, productivity_level, exercise_level, alcoholic_units):
     """Create and return a new user entry."""
 
-    user_entry = User_entry(sleeptime=sleeptime, 
+    user_entry = User_entry(user_id=user_id,
+                            sleeptime=sleeptime, 
                             waketime=waketime, 
                             sleep_quality=sleep_quality, 
                             stress_level=stress_level, 

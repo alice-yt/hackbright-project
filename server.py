@@ -60,10 +60,16 @@ def log_combined_entry():
 @app.route('/user_entries')
 def all_user_entries():
     """View all user entries"""
-    # query that filters for entry for user
+    # query that filters for entry for user in your session
+
+    if 'user' in session:
+        user = session['user']
+
     user_entries = crud.get_user_entries()
 
-    return render_template('all_user_entries.html', user_entries=user_entries)
+    # user_entries = crud.get_user_entries()
+
+    # return render_template('all_user_entries.html', user_entries=user_entries)
 
 
 # check what this is doing
@@ -170,9 +176,11 @@ def add_time_and_input_fields():
     productivity_level = request.form.get('productivity')
     exercise_level = request.form.get('exercise')
     alcoholic_units = request.form.get('alcoholic_units')
+    print('received inputs')
+    user = crud.get_user_by_email(session['user'])
+    user_entry = crud.create_user_entry(user.user_id, sleeptime, waketime, sleep_quality, stress_level, energy_level, productivity_level, exercise_level, alcoholic_units)
 
-    user_entry = crud.create_user_entry(sleeptime, waketime, sleep_quality, stress_level, energy_level, productivity_level, exercise_level, alcoholic_units)
-
+    print('user entry', user_entry)
     mood = request.form.get('mood')
     medication = request.form.get('medication')
     symptom = request.form.get('symptom')
