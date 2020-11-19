@@ -2,7 +2,11 @@
 {% block title %}All User Entries{% endblock %}
 
 {% block body %}
+
 {% for user_entry in user_entries %}
-  <p>{{ user_entry }}</p>
-{% endfor %}
+<li>
+ {{ user_entry }}
+</li>
+
+ {% endfor %}
 {% endblock %}

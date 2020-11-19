@@ -13,6 +13,7 @@ class User(db.Model):
     full_name = db.Column(db.String, nullable=False)
     email = db.Column(db.String, unique=True, nullable=False)
     password = db.Column(db.String, nullable=False)
+    user_entry = db.relationship('User_entry')
 
     def __repr__(self):
         return f'<User user_id={self.user_id} full_name={self.full_name} email={self.email}>'
