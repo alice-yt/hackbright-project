@@ -7,6 +7,11 @@
 
 <p>
   {{ user.email }}
+  {% for user_entry in user_entries %}
+  <li>
+    {{ user.user_entry }}
+  </li>
 </p>
 
+{% endfor %}
 {% endblock %}

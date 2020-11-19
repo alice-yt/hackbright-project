@@ -50,26 +50,21 @@ def all_user_entries():
         user = session['user']
 
     user = crud.get_user_by_id(session['user'])
-    # user_entries = crud.get_use_entry_by_id(user_entry_id)
+    # user_entries = crud.get_user_entry_by_id(user_entry_id)
     print('user', user, user.user_entry)
     user_entries = user.user_entry
     return render_template('all_user_entries.html', user_entries=user_entries)
 
-    # user_entry = crud.create_user_entry(user.user_id, sleeptime, waketime, sleep_quality, stress_level, energy_level, productivity_level, exercise_level, alcoholic_units)
 
-    # user_entries = crud.get_user_entries()
-
-    # return render_template('all_user_entries.html', user_entries=user_entries)
-
-
-# check what this is doing
+# currently displays a 404 error
 @app.route('/user_entries/<user_entry_id>') 
 def show_user_entry(user_entry_id):
-    """Show user entry details"""
+    """Show all of the entry's details"""
 
-    user_entry = crud.get_user_by_email(email)
+    user = crud.get_user_by_id(user_id)
+    user_entries = user.user_entry
 
-    return render_template('user_entry_details.html', user_entry=user_entry)
+    return render_template('user_entry_details.html', user=user, user_entry=user_entry)
 
 
 @app.route('/sleep_insights')
@@ -90,11 +85,12 @@ def all_users():
 
 @app.route('/users/<user_id>')
 def show_user(user_id):
-    """Show user details by clicking on the user on /users page"""
+    """Show user email and entries by clicking on the user on /users page"""
 
     user = crud.get_user_by_id(user_id)
+    user_entries = user.user_entry
 
-    return render_template('user_details.html', user=user)
+    return render_template('user_details.html', user=user, user_entries=user_entries)
 
 
 @app.route('/create_account', methods=['POST'])
