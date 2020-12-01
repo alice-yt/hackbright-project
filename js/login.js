@@ -1,4 +1,4 @@
-$('#login-form').on('submit', (evt) => { // what should replace '#order-form'?
+$('#login-form').on('submit', (evt) => {
   evt.preventDefault();
 
   const formInputs = {
@@ -14,6 +14,3 @@ $('#login-form').on('submit', (evt) => { // what should replace '#order-form'?
     }
   });
 });
-
-// should I add a scriptag to link my html form to this JS file?
-// how do I know that my AJAX request is working?
