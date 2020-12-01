@@ -112,6 +112,24 @@ def register_user():
     return redirect('/')
 
 
+@app.route('/api/login', methods=['POST'])
+def api_login_user():
+    """Login User"""
+    print('LOGIN')
+    email = request.form.get('login-email')
+    password = request.form.get('login-password')
+
+    user = crud.get_user_by_email(email)
+    print('USER')
+    if user.password == password:
+        print('user password')
+        session['user'] = user.user_id
+        return 'Login successful'
+    
+    else:
+        return 'Login unsuccessful'
+
+
 @app.route('/', methods=['POST'])
 def login_user():
     """Login User"""
