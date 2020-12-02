@@ -1,16 +1,16 @@
+{% extends 'base.html' %}
 <!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>
-      {% block title %}{% endblock %}
+    {% block title %}{% endblock %}
     </title>
-    <link rel="stylesheet" href="css/style.css">
     {% block head %}{% endblock %}
   </head>
   <body>
-    <script src="js/script.js"></script>
+    <script src="/static/js/script.js"></script>
     {% for msg in get_flashed_messages() %}
         <p class="flash-msg">
             {{ msg }}
@@ -179,8 +179,6 @@
     </p>
 
   </form>
-
-
     {% endblock %}
     </body>
 </html>

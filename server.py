@@ -114,7 +114,7 @@ def register_user():
 
 @app.route('/api/login', methods=['POST'])
 def api_login_user():
-    """Login User"""
+    """Separate login page to test AJAX response"""
     print('LOGIN')
     email = request.form.get('login-email')
     password = request.form.get('login-password')
