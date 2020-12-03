@@ -17,7 +17,7 @@
       <div class="container-fluid padding">
       <div class="row welcome text-center">
         <div class="col-12">
-          <h1 class="display-4">Welcome to Sleep Journal!</h1>
+          <h2>Welcome to Sleep Journal!</h2>
         </div>
         <hr>
         <div class="col-12">
@@ -28,14 +28,17 @@
       </div> 
       </div>
     
-
-
+<br>
+<br>
+<div class="menu">  
   <h2>Menu</h2>
-  <ul>
-    <li><a href="/log_entry">Log your sleep time and entry</a></li>
-    <!-- <li><a href="/calendar">Select a date</a></li> -->
-    <li><a href="/user_entries">View sleep history</a></li>
-    <li><a href="/sleep_insights">View sleep insights</a></li>
-  </ul>
+    <a href="/log_entry">Log your sleep time and entry</a>
+    <br>
+    <a href="/user_entries">View sleep history</a>
+    <br>
+    <a href="/sleep_insights">View sleep insights</a>
+</div>  
 
 {% endblock %}
+
+{% block after_body %} {% endblock %}
