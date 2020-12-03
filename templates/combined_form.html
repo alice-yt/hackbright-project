@@ -18,31 +18,36 @@
     {% endfor %}
 
     {% block body %}
-    <form action="/log_entry" method="POST" name="add_time_and_input_fields" id="mainform">
+  <form action="/log_entry" method="POST" name="add_time_and_input_fields" id="mainform">
   
-    <h2>Enter Sleep & Wake Time</h2>
+  <h2>Log Entry</h2>
+  <br>
+  <h4>Enter Sleep & Wake Time</h4>
   
-    <label for="sleeptime">Sleep Time:</label>
+  <label for="sleeptime">Sleep Time:</label>
   
-    <input type="datetime-local" id="sleeptime"
+  <input type="datetime-local" id="sleeptime"
            name="sleeptime" value="2020-11-13T00:00"
            min="2018-01-01T00:00" max="2020-12-31T00:00">
   
-    <br>
-    <br>
+  <br>
+  <br>
   
-    <label for="waketime">Wake Time:</label>
+  <label for="waketime">Wake Time:</label>
   
-    <input type="datetime-local" id="waketime"
+  <input type="datetime-local" id="waketime"
            name="waketime" value="2020-11-13T00:00"
            min="2018-01-01T00:00" max="2020-12-31T00:00">
-  
-  <h2>Log Entry</h2>
+    
+  <br>
+  <br>
 
+  <h4>From the scale of 1 to 5, assign a number to each (1 being the lowest, 5 the highest):</h4>
+  <br>
   <label for="sleep_quality">Sleep Quality</label>
   <input type="range" name="sleep_quality" id="sleep_quality" min="0" max="5" step="1" value="0">
   <output class="sleep_quality_output" for="sleep_quality"></output>
-
+  
   <br>
   <br>
 
@@ -82,8 +87,7 @@
   <br>
   <br>
 
-    Moods
-    <br>
+  <h4>Moods</h4>
     <br>
     <input type="checkbox" name="mood" value="happy">
     <label>Happy</label>
@@ -114,8 +118,7 @@
   <br>
   <br>
 
-    Symptoms
-    <br>
+  <h4>Symptoms</h4>
     <br>
     <input type="checkbox" name="symptom" value="none">
     <label>None</label>
@@ -151,8 +154,7 @@
   <br>
   <br>
 
-    Medications
-    <br>
+  <h4>Medications</h4>
     <br>
     <input type="checkbox" name="medication" value="none">
     <label>None</label>
