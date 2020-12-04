@@ -1,26 +1,14 @@
 /*   Sitewide  */
 
-/* html, body {
-	height: 100%;
-	width: 100%;
-	/* font-family:
-} */
-
 body { 
 	background: url(/static/img/bed-and-tech-faded.jpg) no-repeat center center fixed; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	color: #ffffff;
+	color: #3f3f3f;
 	/* font-family: 'Noto Sans KR', sans-serif; */
 	font-family: 'Domine', serif;
-}
-
-.navbar {
-	background-color: #32dbae;
-	color: white;
-	border-radius: 0px;
 }
 
 .jumbotron {
@@ -29,13 +17,9 @@ body {
 	color: #3f3f3f;
 }
 
-/* .padding {
-	padding-bottom: 2rem;
-} */
-
 footer {
-	background-color: #81ececff;
-	color: #ffffff;
+	background-color: #79a3b1;
+	color: #fcf8ec;
 	position: fixed;
     bottom: 0;
     width: 100%;  /* required because fixed position */
@@ -45,11 +29,20 @@ footer {
 /*   Menu page  */
 .menu {
 	text-align: center;
-	color: #3f3f3f
+	font-size: large;
 }
 
 .line-wipe {
 	color: #000000
+}
+
+#welcome {
+	font-size: x-large;
+}
+
+#menu {
+	font-size: x-large;
+	color: #3f3f3f
 }
 
 
@@ -62,4 +55,9 @@ footer {
 /* Login */
 #login-form {
 	padding: 3rem;
+}
+
+#login {
+	font-size: x-large;
+	color: #fcf8ec
 }

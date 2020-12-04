@@ -2,11 +2,13 @@
 {% block title %}Sleep Journal · Login{% endblock %}
 
 {% block body %}
-  <h1>Welcome to Sleep Journal!</h1>
 
-  <h2 padding="3rem;">Log In</h2>
 <body>
   <form action="/" method="POST" id=login-form>
+    <span id=login>
+      Log In
+    </span>
+    <br>
     <p>
       Email <input type="text" name="login-email" required=True>
     </p>
@@ -19,7 +21,8 @@
     </p>
 
     <p>
-      New to Sleep Journal? <a href="http://localhost:5000/create_account">Create an account!</a>
+      New to Sleep Journal? 
+      <a href="http://localhost:5000/create_account" style="color:#fcf8ec">Create an account!</a>
     </p>
   </form>
 </body>
