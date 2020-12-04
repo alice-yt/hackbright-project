@@ -7,8 +7,8 @@ body {
 	-o-background-size: cover;
 	background-size: cover;
 	color: #3f3f3f;
-	/* font-family: 'Noto Sans KR', sans-serif; */
 	font-family: 'Domine', serif;
+	width: 100%;
 }
 
 .jumbotron {
@@ -81,5 +81,20 @@ footer {
 
 #login {
 	font-size: x-large;
+	color: #fcf8ec
+}
+
+
+/* Form page */
+#historical-entries {
+	font-size: large;
+	text-align: center;
+	padding: 3rem;
+	background: none;
+	background-color: #d0e8f2;
+}
+
+#history-title {
+	padding: 3rem;
 	color: #fcf8ec
 }

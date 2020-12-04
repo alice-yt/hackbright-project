@@ -2,11 +2,13 @@
 {% block title %}Sleep Journal · Entries{% endblock %}
 
 {% block body %}
-
+<h3 id=history-title>History of User Entries</h3>
 {% for user_entry in user_entries %}
-<li>
+<span style="background-color: #fcf8ec">
+<ol style="list-style-type:decimal" id=historical-entries>
  {{ user_entry }}
-</li>
+</0l>
+</span>
 
  {% endfor %}
 {% endblock %}
