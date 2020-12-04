@@ -85,7 +85,7 @@ footer {
 }
 
 
-/* Form page */
+/* User entries */
 #historical-entries {
 	font-size: large;
 	text-align: center;
@@ -98,3 +98,16 @@ footer {
 	padding: 3rem;
 	color: #fcf8ec
 }
+
+
+/* Create account */
+#create-account {
+	color: #fcf8ec;
+	font-size: x-large;
+}
+	
+#create-account-details {
+	color: #3f3f3f;
+	padding: 3rem;
+}
+

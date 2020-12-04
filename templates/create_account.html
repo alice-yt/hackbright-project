@@ -2,10 +2,10 @@
 {% block title %}Sleep Journal · Create An Account{% endblock %}
 
 {% block body %}
-  <h1>Welcome to Sleep Journal!</h1>
 
-  <h2>Create an Account</h2>
-  <form action="/create_account" method="POST" name="create_acct">
+  <form action="/create_account" method="POST" name="create_acct" id=create-account-details>
+    <span id=create-account>Create an Account</span>
+      <br>
       <p>
         Full Name <input type="text" name="full-name" required=True>
       </p>
@@ -17,7 +17,7 @@
       <p>
         Password <input type="password" name="create-password" required=True>
       </p>
-
+      <br>
       <p>
         <input type="submit">
       </p>
