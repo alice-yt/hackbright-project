@@ -50,7 +50,29 @@ footer {
 #mainform {
 	padding: 3rem;
 }
+#log-entry {
+	font-size: xx-large;
+}
 
+#sleep-wake-time {
+	font-size: x-large;
+}
+
+#drag-scale {
+	font-size: x-large;
+}
+
+#moods {
+	font-size: x-large;
+}
+
+#symptoms {
+	font-size: x-large;
+}
+
+#medications {
+	font-size: x-large;
+}
 
 /* Login */
 #login-form {

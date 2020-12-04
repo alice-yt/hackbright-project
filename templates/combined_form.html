@@ -20,10 +20,12 @@
     {% block body %}
   <form action="/log_entry" method="POST" name="add_time_and_input_fields" id="mainform">
   
-  <h2>Log Entry</h2>
+  <span style="background-color: #d0e8f2" id=log-entry>Log Entry</span>  
   <br>
-  <h4>Enter Sleep & Wake Time</h4>
-  
+  <br>
+  <span style="background-color: #fcf8ec" id=sleep-wake-time>Enter Sleep & Wake Time</span> 
+  <br>
+  <br>
   <label for="sleeptime">Sleep Time:</label>
   
   <input type="datetime-local" id="sleeptime"
@@ -42,8 +44,11 @@
   <br>
   <br>
 
-  <h4>From the scale of 1 to 5, assign a number to each (1 being the lowest, 5 the highest):</h4>
+  <span style="background-color: #fcf8ec" id=drag-scale>On the scale of 1 to 5, assign a number to each (1 being the lowest, 5 the highest):</span>
+
   <br>
+  <br>
+
   <label for="sleep_quality">Sleep Quality</label>
   <input type="range" name="sleep_quality" id="sleep_quality" min="0" max="5" step="1" value="0">
   <output class="sleep_quality_output" for="sleep_quality"></output>
@@ -85,9 +90,9 @@
 
   <br>
   <br>
-  <br>
 
-  <h4>Moods</h4>
+  <span style="background-color: #fcf8ec" id=moods>Moods</span>
+    <br>
     <br>
     <input type="checkbox" name="mood" value="happy">
     <label>Happy</label>
@@ -116,9 +121,9 @@
 
   <br>
   <br>
-  <br>
 
-  <h4>Symptoms</h4>
+  <span style="background-color: #fcf8ec" id=moods>Symptoms</span>
+    <br>
     <br>
     <input type="checkbox" name="symptom" value="none">
     <label>None</label>
@@ -152,9 +157,9 @@
 
   <br>
   <br>
-  <br>
 
-  <h4>Medications</h4>
+  <span style="background-color: #fcf8ec" id=moods>Medications</span>
+    <br>
     <br>
     <input type="checkbox" name="medication" value="none">
     <label>None</label>
@@ -176,7 +181,9 @@
     <input type="checkbox" name="medication" value="pepto_bismol">
     <label>Pepto Bismol</label>
 
+    <br>
     <p>
+      <br>
         <input type="submit">
     </p>
 
