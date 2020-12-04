@@ -81,28 +81,29 @@ footer {
 
 #login {
 	font-size: x-large;
-	color: #fcf8ec
+	color: #456268
 }
 
 
 /* User entries */
 #historical-entries {
-	font-size: large;
+	font-size: medium;
 	text-align: center;
 	padding: 3rem;
-	background: none;
 	background-color: #d0e8f2;
 }
 
 #history-title {
 	padding: 3rem;
-	color: #fcf8ec
+	color: #3f3f3f;
+	background-color: #fcf8ec;
+	font-size: large;
 }
 
 
 /* Create account */
 #create-account {
-	color: #fcf8ec;
+	color: #456268;
 	font-size: x-large;
 }
 	
