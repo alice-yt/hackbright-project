@@ -25,6 +25,10 @@ footer {
     width: 100%;  /* required because fixed position */
 }
 
+.flash-msg {
+	padding: 3rem;
+}
+
 
 /*   Menu page  */
 .menu {

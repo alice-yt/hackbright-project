@@ -53,6 +53,7 @@ def all_user_entries():
     # user_entries = crud.get_user_entry_by_id(user_entry_id)
     print('user', user, user.user_entry)
     user_entries = user.user_entry
+    
     return render_template('all_user_entries.html', user_entries=user_entries)
 
 
