@@ -36,7 +36,7 @@ class User_entry(db.Model):
     user = db.relationship('User')
 
     def __repr__(self):
-        return f'<User_entry user_entry_id={self.user_entry_id} sleeptime={self.sleeptime} waketime={self.waketime} sleep_quality={self.sleep_quality} stress_level={self.stress_level} energy_level={self.energy_level}> productivity_level={self.productivity_level} exercise_level={self.exercise_level} alcoholic_units={self.alcoholic_units}>'
+        return f'User Entry ID: {self.user_entry_id}, Sleeptime: {self.sleeptime}, Waketime: {self.waketime}, Sleep Quality: {self.sleep_quality}, Stress Level: {self.stress_level}, Energy Level: {self.energy_level}, Productivity Level: {self.productivity_level}, Exercise Level: {self.exercise_level}, Alcoholic Units: {self.alcoholic_units}'
     
 
 class Mood(db.Model):
