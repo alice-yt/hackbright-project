@@ -1,21 +1,6 @@
 {% extends 'base.html' %}
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>
+
     {% block title %}Sleep Journal · Log Entry{% endblock %}
-    </title>
-    {% block head %}{% endblock %}
-  </head>
-  <body>
-    <script src="/static/js/script.js"></script>
-    {% for msg in get_flashed_messages() %}
-        <p class="flash-msg">
-            {{ msg }}
-        </p>
-    {% endfor %}
 
     {% block body %}
   <form action="/log_entry" method="POST" name="add_time_and_input_fields" id="mainform">
@@ -94,29 +79,29 @@
   <span style="background-color: #fcf8ec" id=moods>Moods</span>
     <br>
     <br>
-    <input type="checkbox" name="mood" value="happy">
+    <input type="checkbox" name="mood" value="Happy">
     <label>Happy</label>
-    <input type="checkbox" name="mood" value="calm">
+    <input type="checkbox" name="mood" value="Calm">
     <label>Calm</label>
     <br>
-    <input type="checkbox" name="mood" value="content">
+    <input type="checkbox" name="mood" value="Content">
     <label>Content</label>
-    <input type="checkbox" name="mood" value="excited">
+    <input type="checkbox" name="mood" value="Excited">
     <label>Excited</label>
     <br>
-    <input type="checkbox" name="mood" value="anxious">
+    <input type="checkbox" name="mood" value="Anxious">
     <label>Anxious</label>
-    <input type="checkbox" name="mood" value="depressed">
+    <input type="checkbox" name="mood" value="Depressed">
     <label>Depressed</label>
     <br>
-    <input type="checkbox" name="mood" value="irritated">
+    <input type="checkbox" name="mood" value="Irritated">
     <label>Irritated</label>
-    <input type="checkbox" name="mood" value="angry">
+    <input type="checkbox" name="mood" value="Angry">
     <label>Angry</label>
     <br>
-    <input type="checkbox" name="mood" value="self critical">
+    <input type="checkbox" name="mood" value="Self critical">
     <label>Self critical</label>
-    <input type="checkbox" name="mood" value="confused">
+    <input type="checkbox" name="mood" value="Confused">
     <label>Confused</label>
 
   <br>
@@ -125,34 +110,34 @@
   <span style="background-color: #fcf8ec" id=moods>Symptoms</span>
     <br>
     <br>
-    <input type="checkbox" name="symptom" value="none">
+    <input type="checkbox" name="symptom" value="None">
     <label>None</label>
-    <input type="checkbox" name="symptom" value="fatigue">
+    <input type="checkbox" name="symptom" value="Fatigue">
     <label>Fatigue</label>
     <br>
-    <input type="checkbox" name="symptom" value="nausea">
+    <input type="checkbox" name="symptom" value="Nausea">
     <label>Nausea</label>
-    <input type="checkbox" name="symptom" value="pain">
+    <input type="checkbox" name="symptom" value="Pain">
     <label>Pain</label>
     <br>
-    <input type="checkbox" name="symptom" value="headache">
+    <input type="checkbox" name="symptom" value="Headache">
     <label>Headache</label>
-    <input type="checkbox" name="symptom" value="migrane">
+    <input type="checkbox" name="symptom" value="Migrane">
     <label>Migrane</label>
     <br>
-    <input type="checkbox" name="symptom" value="cold/flu">
+    <input type="checkbox" name="symptom" value="Cold/Flu">
     <label>Cold/Flu</label>
-    <input type="checkbox" name="symptom" value="allergies">
+    <input type="checkbox" name="symptom" value="Allergies">
     <label>Allergies</label>
     <br>
-    <input type="checkbox" name="symptom" value="heartburn">
+    <input type="checkbox" name="symptom" value="Heartburn">
     <label>Heartburn</label>
-    <input type="checkbox" name="symptom" value="constipation">
+    <input type="checkbox" name="symptom" value="Constipation">
     <label>Constipation</label>
     <br>
-    <input type="checkbox" name="symptom" value="diarrhea">
+    <input type="checkbox" name="symptom" value="Diarrhea">
     <label>Diarrhea</label>
-    <input type="checkbox" name="symptom" value="bloating">
+    <input type="checkbox" name="symptom" value="Bloating">
     <label>Bloating</label>
 
   <br>
@@ -161,24 +146,24 @@
   <span style="background-color: #fcf8ec" id=moods>Medications</span>
     <br>
     <br>
-    <input type="checkbox" name="medication" value="none">
+    <input type="checkbox" name="medication" value="None">
     <label>None</label>
-    <input type="checkbox" name="medication" value="tylenol">
+    <input type="checkbox" name="medication" value="Tylenol">
     <label>Tylenol</label>
     <br>
-    <input type="checkbox" name="medication" value="ibuprofen">
+    <input type="checkbox" name="medication" value="Ibuprofen">
     <label>Ibuprofen</label>
-    <input type="checkbox" name="medication" value="decongestant">
+    <input type="checkbox" name="medication" value="Decongestant">
     <label>Decongestant</label>
     <br>
-    <input type="checkbox" name="medication" value="cough_medicine">
+    <input type="checkbox" name="medication" value="Cough medicine">
     <label>Cough medicine</label>
-    <input type="checkbox" name="medication" value="antihistamine">
+    <input type="checkbox" name="medication" value="Antihistamine">
     <label>Antihistamine</label>
     <br>
-    <input type="checkbox" name="medication" value="antacid">
+    <input type="checkbox" name="medication" value="Antacid">
     <label>Antacid</label>
-    <input type="checkbox" name="medication" value="pepto_bismol">
+    <input type="checkbox" name="medication" value="Pepto bismol">
     <label>Pepto Bismol</label>
 
     <br>
@@ -189,5 +174,3 @@
 
   </form>
     {% endblock %}
-    </body>
-</html>

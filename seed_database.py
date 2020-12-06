@@ -55,9 +55,7 @@ moods = {
 mood_obj = []
 
 for key in moods:
-    mood_dict = random.choice(list(moods.values()))
-
-    mood = model.Mood(mood=mood_dict)
+    mood = model.Mood(mood=moods[key])
     mood_obj.append(mood)
     model.db.session.add(mood)
     model.db.session.commit()
@@ -76,9 +74,7 @@ medications = {
 medication_obj = []
 
 for key in medications:
-    medication_dict = random.choice(list(medications.values()))
-
-    medication = model.Medication(medication=medication_dict)
+    medication = model.Medication(medication=medications[key])
     medication_obj.append(medication)
     model.db.session.add(medication)
     model.db.session.commit()
@@ -101,9 +97,7 @@ symptoms = {
 symptom_obj = []
 
 for key in symptoms:
-    symptom_dict = random.choice(list(symptoms.values()))
-
-    symptom = model.Symptom(symptom=symptom_dict)
+    symptom = model.Symptom(symptom=symptoms[key])
     symptom_obj.append(symptom)
     model.db.session.add(symptom)
     model.db.session.commit()
@@ -143,7 +137,7 @@ for user in range(10):
         exercise_level = random.randint(0, 5)
     
         list_of_alcoholic_units = ['0', '1', '2', '3', '4', '5+']
-        random.choice(list_of_alcoholic_units)
+        alcoholic_units = random.choice(list_of_alcoholic_units)
 
         user_entry = model.User_entry(user_id=user.user_id, sleeptime=sleeptime, waketime=waketime, sleep_quality=sleep_quality, stress_level=stress_level, energy_level=energy_level, productivity_level=productivity_level, exercise_level=exercise_level, alcoholic_units=list_of_alcoholic_units)
         model.db.session.add(user_entry)

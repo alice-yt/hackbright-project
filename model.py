@@ -36,7 +36,10 @@ class User_entry(db.Model):
     user = db.relationship('User')
 
     def __repr__(self):
-        return f'User Entry ID: {self.user_entry_id}, Sleeptime: {self.sleeptime}, Waketime: {self.waketime}, Sleep Quality: {self.sleep_quality}, Stress Level: {self.stress_level}, Energy Level: {self.energy_level}, Productivity Level: {self.productivity_level}, Exercise Level: {self.exercise_level}, Alcoholic Units: {self.alcoholic_units}'
+        return f"""User Entry ID: {self.user_entry_id}, Sleeptime: {self.sleeptime}, Waketime: {self.waketime}, 
+        Sleep Quality: {self.sleep_quality}, Stress Level: {self.stress_level}, Energy Level: {self.energy_level}, 
+        Productivity Level: {self.productivity_level}, Exercise Level: {self.exercise_level}, 
+        Alcoholic Units: {self.alcoholic_units}, User Entry Mood: {self.user_entry_moods}"""
     
 
 class Mood(db.Model):
@@ -58,8 +61,9 @@ class User_entry_mood(db.Model):
     user_entry_id = db.Column(db.Integer, db.ForeignKey('user_entries.user_entry_id'), nullable=False)
     mood_id = db.Column(db.Integer, db.ForeignKey('moods.mood_id'), nullable=False)
     
-    user_entry = db.relationship('User_entry')
+    user_entry = db.relationship('User_entry', backref="user_entry_moods")
     mood = db.relationship('Mood')
+
 
     def __repr__(self):
         return f'<User_entry_mood user_entry_mood_id={self.user_entry_mood_id} mood_id={self.mood_id}>'
@@ -84,7 +88,7 @@ class User_entry_medication(db.Model):
     user_entry_id = db.Column(db.Integer, db.ForeignKey('user_entries.user_entry_id'), nullable=False)
     medication_id = db.Column(db.Integer, db.ForeignKey('medications.medication_id'), nullable=False)
     
-    user_entry = db.relationship('User_entry')
+    user_entry = db.relationship('User_entry', backref="user_entry_medications")
     medication = db.relationship('Medication')
 
     def __repr__(self):
@@ -110,7 +114,7 @@ class User_entry_symptom(db.Model):
     user_entry_id = db.Column(db.Integer, db.ForeignKey('user_entries.user_entry_id'), nullable=False)
     symptom_id = db.Column(db.Integer, db.ForeignKey('symptoms.symptom_id'), nullable=False)
     
-    user_entry = db.relationship('User_entry')
+    user_entry = db.relationship('User_entry', backref="user_entry_symptoms")
     symptom = db.relationship('Symptom')
 
     def __repr__(self):

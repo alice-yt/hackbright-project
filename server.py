@@ -46,9 +46,11 @@ def log_combined_entry():
 def all_user_entries():
     """View all user entries of user within the session"""
 
-    if 'user' in session:
-        user = session['user']
 
+    user = session.get('user')
+    if not user:
+        return redirect('/') 
+    print(user, '*****') 
     user = crud.get_user_by_id(session['user'])
     # user_entries = crud.get_user_entry_by_id(user_entry_id)
     print('user', user, user.user_entry)
@@ -167,13 +169,36 @@ def add_time_and_input_fields():
     user_entry = crud.create_user_entry(session['user'], sleeptime, waketime, sleep_quality, stress_level, energy_level, productivity_level, exercise_level, alcoholic_units)
 
     print('user entry', user_entry)
-    mood = request.form.get('mood')
-    medication = request.form.get('medication')
-    symptom = request.form.get('symptom')
+    moods = request.form.getlist('mood')
+    medications = request.form.getlist('medication')
+    symptoms = request.form.getlist('symptom')
 
-    user_entry_mood = crud.create_mood(mood)
-    user_entry_medication = crud.create_medication(medication)
-    user_entry_symptom = crud.create_symptom(symptom)
+    for mood_name in moods: 
+        mood = Mood.query.filter_by(mood=mood_name).first()
+        user_entry_mood = User_entry_mood(
+            user_entry_id=user_entry.user_entry_id, 
+            mood_id=mood.mood_id
+        )
+        db.session.add(user_entry_mood)
+        db.session.commit()
+
+    for med_name in medications:
+        med = Medication.query.filter_by(medication=med_name).first()
+        user_entry_med = User_entry_medication(
+            user_entry_id=user_entry.user_entry_id, 
+            medication_id=med.medication_id
+        )
+        db.session.add(user_entry_med)
+        db.session.commit()
+
+    for symptom in symptoms:
+        sym = Symptom.query.filter_by(symptom=symptom).first()
+        user_entry_symptom = User_entry_symptom(
+            user_entry_id=user_entry.user_entry_id, 
+            symptom_id=sym.symptom_id
+        )
+        db.session.add(user_entry_symptom)
+        db.session.commit()
 
     flash("Your entry has been successfully added!")
 
