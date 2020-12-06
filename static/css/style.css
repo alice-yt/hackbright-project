@@ -108,11 +108,10 @@ ul {
     list-style-type: none;
 }
 
-/* ul li::before {
-    content: "\f274";
-    font-family: "Font Awesome 5 Free";
-    padding: 0 10px 0 0;
-} */
+.underline {
+	text-decoration: underline;
+	font-size: large;
+}
 
 
 /* Create account */

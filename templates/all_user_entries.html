@@ -6,36 +6,36 @@
 <span id=history-title>History of User Entries</span>
 {% for user_entry in user_entries %}
 <ul id=historical-entries>
-   <strong>Sleep Duration</strong>
+   <strong class="underline">Sleep Duration:</strong>
    <li><i class="far fa-calendar"></i> Sleeptime: {{ user_entry.sleeptime }}</li>
-   <li><i class="far fa-calendar"></i> Waketime: {{ user_entry.waketime }}</li>
+   <li><i class="far fa-calendar"></i> Waketime: {{ user_entry.waketime }}:</li>
    <br>
-   <strong>Sleep, Health, and Lifestyle Quality</strong>
-   <li>Sleep Quality: {{ user_entry.sleep_quality }}</li>
-   <li>Stress Level: {{ user_entry.stress_level }}</li>
-   <li>Energy Level: {{ user_entry.energy_level }}</li>
-   <li>Productivity: {{ user_entry.productivity_level }}</li>
-   <li>Exercise Level: {{ user_entry.exercise_level }}</li>
-   <li>Alcohol: {{ user_entry.alcoholic_units }}</li>
+   <strong class="underline">Sleep, Health, and Lifestyle Quality:</strong>
+   <li><i class="far fa-heart"></i> Sleep Quality: {{ user_entry.sleep_quality }}</li>
+   <li><i class="far fa-heart"></i> Stress Level: {{ user_entry.stress_level }}</li>
+   <li><i class="far fa-heart"></i> Energy Level: {{ user_entry.energy_level }}</li>
+   <li><i class="far fa-heart"></i> Productivity: {{ user_entry.productivity_level }}</li>
+   <li><i class="far fa-heart"></i> Exercise Level: {{ user_entry.exercise_level }}</li>
+   <li><i class="far fa-heart"></i> Alcohol: {{ user_entry.alcoholic_units }}</li>
 <ul>
     <br>
-    <strong>Moods:</strong>
+    <strong class="underline">Moods:</strong>
     {% for user_entry_mood in user_entry.user_entry_moods %}
-        <li>{{user_entry_mood.mood.mood}}</li>
+        <li><i class="far fa-comment"></i> {{user_entry_mood.mood.mood}}</li>
     {% endfor %}
     </ul>
     <ul>
     <br>
-    <strong>Symptoms:</strong>
+    <strong class="underline">Symptoms:</strong>
     {% for user_entry_symptom in user_entry.user_entry_symptoms %}
-        <li>{{ user_entry_symptom.symptom.symptom }}</li>
+        <li><i class="fas fa-stethoscope"></i> {{ user_entry_symptom.symptom.symptom }}</li>
     {% endfor %}
     </ul>
     <ul>
     <br>
-    <strong>Medications:</strong>
+    <strong class="underline">Medications:</strong>
     {% for user_entry_medication in user_entry.user_entry_medications %}
-       <li>{{ user_entry_medication.medication.medication }}</li>
+       <li><i class="fas fa-pills"></i> {{ user_entry_medication.medication.medication }}</li>
     {% endfor %}
     </ul>
 </ul>
