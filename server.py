@@ -50,24 +50,11 @@ def all_user_entries():
     user = session.get('user')
     if not user:
         return redirect('/') 
-    print(user, '*****') 
+
     user = crud.get_user_by_id(session['user'])
-    # user_entries = crud.get_user_entry_by_id(user_entry_id)
-    print('user', user, user.user_entry)
     user_entries = user.user_entry
     
     return render_template('all_user_entries.html', user_entries=user_entries)
-
-
-# currently displays a 404 error
-@app.route('/user_entries/<user_entry_id>') 
-def show_user_entry(user_entry_id):
-    """Show all of the entry's details"""
-
-    user = crud.get_user_by_id(user_id)
-    user_entries = user.user_entry
-
-    return render_template('user_entry_details.html', user=user, user_entry=user_entry)
 
 
 @app.route('/sleep_insights')
@@ -118,12 +105,12 @@ def register_user():
 @app.route('/api/login', methods=['POST'])
 def api_login_user():
     """Separate login page to test AJAX response"""
-    print('LOGIN')
+
     email = request.form.get('login-email')
     password = request.form.get('login-password')
 
     user = crud.get_user_by_email(email)
-    print('USER')
+
     if user.password == password:
         print('user password')
         session['user'] = user.user_id
@@ -156,6 +143,7 @@ def login_user():
 
 @app.route('/log_entry', methods=['POST'])
 def add_time_and_input_fields():
+    """get sleep times and all input fields with sliders"""
     sleeptime = request.form.get('sleeptime')
     waketime = request.form.get('waketime')
     sleep_quality = request.form.get('sleep_quality')
@@ -164,15 +152,16 @@ def add_time_and_input_fields():
     productivity_level = request.form.get('productivity')
     exercise_level = request.form.get('exercise')
     alcoholic_units = request.form.get('alcoholic_units')
-    print('received inputs')
-    # user = crud.get_user_by_email(session['user'])
+
+    """create user entry with sleep times and all input fields with sliders"""
     user_entry = crud.create_user_entry(session['user'], sleeptime, waketime, sleep_quality, stress_level, energy_level, productivity_level, exercise_level, alcoholic_units)
 
-    print('user entry', user_entry)
+    """get moods, meds, and symptoms checkbox inputs from form"""
     moods = request.form.getlist('mood')
     medications = request.form.getlist('medication')
     symptoms = request.form.getlist('symptom')
 
+    """for mood, meds, and symptoms, associate it with a user entry id and mood/med/symptom id"""
     for mood_name in moods: 
         mood = Mood.query.filter_by(mood=mood_name).first()
         user_entry_mood = User_entry_mood(
@@ -203,6 +192,17 @@ def add_time_and_input_fields():
     flash("Your entry has been successfully added!")
 
     return redirect('/menu')
+
+
+# currently displays a 404 error
+@app.route('/user_entries/<user_entry_id>') 
+def show_user_entry(user_entry_id):
+    """Show all of the entry's details"""
+
+    user = crud.get_user_by_id(user_id)
+    user_entries = user.user_entry
+
+    return render_template('user_entry_details.html', user=user, user_entry=user_entry)
 
 
 if __name__ == '__main__':

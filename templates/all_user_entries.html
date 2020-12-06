@@ -5,10 +5,10 @@
 <br>
 <span id=history-title>History of User Entries</span>
 {% for user_entry in user_entries %}
-<ul style="list-style-type:decimal" id=historical-entries>
+<ul id=historical-entries>
    <li>Sleeptime: {{ user_entry.sleeptime }}</li>
    <li>Waketime: {{ user_entry.waketime }}</li>
-   <li>SLeep Quality: {{ user_entry.sleep_quality }}</li>
+   <li>Sleep Quality: {{ user_entry.sleep_quality }}</li>
    <li>Stress Level: {{ user_entry.stress_level }}</li>
    <li>Energy Level: {{ user_entry.energy_level }}</li>
    <li>Productivity: {{ user_entry.productivity_level }}</li>

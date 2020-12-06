@@ -92,36 +92,6 @@ def create_symptom(symptom):
 
     return symptom
 
-# def create_sleep_time(sleeptime)
-
-# def create_wake_time(waketime)
-
-
-# def get_movies():
-#     """Create and return all movies."""
-
-#     return Movie.query.all()
-
-# def get_users():
-#     """ Get list of users"""
-
-#     return User.query.all()
-
-# def get_user_by_id(user_id):
-#     """ gets user by id"""
-
-#     return User.query.get(user_id)
-
-# def get_movie_by_id(movie_id):
-#     """ gets movie by id """
-
-#     return Movie.query.get(movie_id)
-
-# def get_user_by_email(email):
-
-#     return User.query.filter(User.email == email).first()
-
-
 
 if __name__ == '__main__':
     from server import app
