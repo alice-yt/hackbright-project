@@ -6,32 +6,38 @@
 <span id=history-title>History of User Entries</span>
 {% for user_entry in user_entries %}
 <ul id=historical-entries>
-   <li>Sleeptime: {{ user_entry.sleeptime }}</li>
-   <li>Waketime: {{ user_entry.waketime }}</li>
+   <strong>Sleep Duration</strong>
+   <li><i class="far fa-calendar"></i> Sleeptime: {{ user_entry.sleeptime }}</li>
+   <li><i class="far fa-calendar"></i> Waketime: {{ user_entry.waketime }}</li>
+   <br>
+   <strong>Sleep, Health, and Lifestyle Quality</strong>
    <li>Sleep Quality: {{ user_entry.sleep_quality }}</li>
    <li>Stress Level: {{ user_entry.stress_level }}</li>
    <li>Energy Level: {{ user_entry.energy_level }}</li>
    <li>Productivity: {{ user_entry.productivity_level }}</li>
    <li>Exercise Level: {{ user_entry.exercise_level }}</li>
    <li>Alcohol: {{ user_entry.alcoholic_units }}</li>
-   <ul>
-   Moods:
-   {% for user_entry_mood in user_entry.user_entry_moods %}
-      <li>{{user_entry_mood.mood.mood}}</li>
-   {% endfor %}
-   </ul>
-   <ul>
-   Medications:
-   {% for user_entry_medication in user_entry.user_entry_medications %}
-      <li>{{ user_entry_medication.medication.medication }}</li>
-   {% endfor %}
-   </ul>
-   <ul>
-   Symptoms:
-   {% for user_entry_symptom in user_entry.user_entry_symptoms %}
-      <li>{{ user_entry_symptom.symptom.symptom }}</li>
-   {% endfor %}
-   </ul>
+<ul>
+    <br>
+    <strong>Moods:</strong>
+    {% for user_entry_mood in user_entry.user_entry_moods %}
+        <li>{{user_entry_mood.mood.mood}}</li>
+    {% endfor %}
+    </ul>
+    <ul>
+    <br>
+    <strong>Symptoms:</strong>
+    {% for user_entry_symptom in user_entry.user_entry_symptoms %}
+        <li>{{ user_entry_symptom.symptom.symptom }}</li>
+    {% endfor %}
+    </ul>
+    <ul>
+    <br>
+    <strong>Medications:</strong>
+    {% for user_entry_medication in user_entry.user_entry_medications %}
+       <li>{{ user_entry_medication.medication.medication }}</li>
+    {% endfor %}
+    </ul>
 </ul>
  {% endfor %}
 

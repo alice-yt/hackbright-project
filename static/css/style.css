@@ -92,7 +92,7 @@ footer {
 /* User entries */
 #historical-entries {
 	font-size: medium;
-	text-align: center;
+	text-align: left;
 	padding: 3rem;
 	background-color: #d0e8f2;
 }
@@ -103,6 +103,16 @@ footer {
 	background-color: #fcf8ec;
 	font-size: large;
 }
+
+ul {
+    list-style-type: none;
+}
+
+/* ul li::before {
+    content: "\f274";
+    font-family: "Font Awesome 5 Free";
+    padding: 0 10px 0 0;
+} */
 
 
 /* Create account */
