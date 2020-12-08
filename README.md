@@ -1,4 +1,4 @@
-# 🌙 Sleep Journal 
+# 🌙 Sleep Journal ☁️
 
 Sleep Journal is a sleep tracking full-stack web application that allows the user to input sleep time and duration, 
 sleep quality, responses to other lifestyle fields, and view past entries. Sleep Journal facilitates personal change to 
@@ -78,7 +78,7 @@ Run the app from the command line:
 $ python3 server.py
 ```
 
-## <a name="aboutme"></a> 🌙 About the Developer
+## <a name="aboutme"></a> ☁️ About the Developer
 
 Sleep Journal creator, Alice Tang, graduated from Wellesley College with a double major in Economics and English. 
 Previously, she worked as a marketing/advertising analyst. She developed an interest in software engineering when she 
