@@ -1,5 +1,5 @@
 # 🌙 Sleep Journal 
-![](file:///Users/victorsi/Desktop/Screen%20Shot%202020-03-14%20at%2012.44.09%20AM.png)
+
 Sleep Journal is a sleep tracking full-stack web application that allows the user to input sleep time and duration, 
 sleep quality, responses to other lifestyle fields, and view past entries. Sleep Journal facilitates personal change to 
 achieve better sleep and is built for anyone who is looking to improve his or her sleep. <br>
@@ -10,30 +10,30 @@ achieve better sleep and is built for anyone who is looking to improve his or he
 * [Set-up & Installation](#installation)
 * [About the Developer](#aboutme)
 
-## <a name="features"></a> Features 🌙
+## <a name="features"></a> Features 🌙 
 
 User-friendly menu page
 <br>
 <br>
-![]()
+![](static/gifs/menu.gif)
 <br>
 
 User registration, log-in, & log-out
 <br>
 <br>
-![]()
+![](static/gifs/registration.gif)
 <br>
 
 Log a daily entry on your sleep and related health and lifestyle fields
 <br>
 <br>
-![]()
+![](static/gifs/log-entry.gif)
 <br/>
 
 View sleep entries
 <br>
 <br>
-![]()
+![](static/gifs/view-entries.gif)
 <br/>
 
 ## <a name="techstack"></a> Technologies and Stack 🌙
@@ -48,8 +48,8 @@ Javascript, jQuery, Bootstrap, HTML5, CSS3, Google Fonts, Font Awesome <br>
 ## <a name="installation"></a> Set-up & Installation 🌙
 Install a code editor such as [VS code](https://code.visualstudio.com/download)<br>
 Install [Python3](https://www.python.org/downloads/mac-osx/)<br>
-Install [pip](https://pip.pypa.io/en/stable/installing/), the package installer for Python <br>
-Install [postgreSQL](https://www.postgresql.org/) for the relational database.<br>
+Install [pip](https://pip.pypa.io/en/stable/installing/), the package installer for Python<br>
+Install [postgreSQL](https://www.postgresql.org/) for the relational database<br>
 
 
 Clone or fork repository:
@@ -65,7 +65,7 @@ Install dependencies:
 ```
 $ pip3 install -r requirements.txt
 ```
-With PostgreSQL, create the sleepjournal database
+With PostgreSQL, create the sleepjournal database:
 ```
 $ createdb sleepjournal
 ```
@@ -78,7 +78,7 @@ Run the app from the command line:
 $ python3 server.py
 ```
 
-## <a name="aboutme"></a> About the Developer 🌙
+## <a name="aboutme"></a> 🌙 About the Developer
 
 Sleep Journal creator, Alice Tang, graduated from Wellesley College with a double major in Economics and English. 
 Previously, she worked as a marketing/advertising analyst. She developed an interest in software engineering when she 
