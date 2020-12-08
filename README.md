@@ -12,7 +12,7 @@ achieve better sleep and is built for anyone who is looking to improve his or he
 
 ## <a name="features"></a> Features 🌙 
 
-User registration, log-in, & log-out
+User registration, log-in, and log-out
 <br>
 <br>
 ![](static/gifs/registration.gif)
