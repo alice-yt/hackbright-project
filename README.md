@@ -12,16 +12,16 @@ achieve better sleep and is built for anyone who is looking to improve his or he
 
 ## <a name="features"></a> Features 🌙 
 
-User-friendly menu page
-<br>
-<br>
-![](static/gifs/menu.gif)
-<br>
-
 User registration, log-in, & log-out
 <br>
 <br>
 ![](static/gifs/registration.gif)
+<br>
+
+User-friendly menu page
+<br>
+<br>
+![](static/gifs/menu.gif)
 <br>
 
 Log a daily entry on your sleep and related health and lifestyle fields
