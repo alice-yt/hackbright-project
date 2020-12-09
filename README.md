@@ -10,7 +10,7 @@ achieve better sleep and is built for anyone who is looking to improve his or he
 * [Set-up & Installation](#installation)
 * [About the Developer](#aboutme)
 
-View my **[Youtube demo] (https://youtu.be/bu7xYZu7SIs)**<br>
+View my **[YouTube demo](https://youtu.be/bu7xYZu7SIs)**!<br>
 
 ## <a name="features"></a> Features 🌙 
 
